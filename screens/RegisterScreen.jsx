@@ -1,11 +1,13 @@
 import { View, Text, KeyboardAvoidingView, StyleSheet } from 'react-native'
 import React from 'react'
+import { StatusBar } from 'expo-status-bar';
 
 
 
 const RegisterScreen = ({ navigation }) => {
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView behavior='padding' style={styles.container}> 
+        <StatusBar style='light' />
       <Text>RegisterScreen</Text>
     </KeyboardAvoidingView>
   )
