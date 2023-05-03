@@ -10,6 +10,7 @@ import { getAnalytics } from "firebase/analytics";
 // Firebase-https://firebase.google.com/docs/web/setup#available-libraries
 import { firebaseConfig } from "./firebase";
 import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -22,6 +23,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
