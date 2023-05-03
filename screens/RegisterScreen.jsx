@@ -16,6 +16,8 @@ const RegisterScreen = ({ navigation }) => {
                 placeholder='Full Name' 
                 autoFocus
                 type="text"
+                value={fullName} //to 'map' this value to the state fullName
+                onChangeText={text => setFullName(text)}
             />
         </View>
         </KeyboardAvoidingView>
