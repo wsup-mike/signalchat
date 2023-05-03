@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState } from 'react'
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,8 @@ const LoginScreen = () => {
     const signIn = () => {
 
     }
+
+    const navigation = useNavigation();
 
     return (
         <KeyboardAvoidingView behavior='padding' enabled style={styles.container}>
@@ -39,7 +42,7 @@ const LoginScreen = () => {
             <Button title="Login" containerStyle={styles.button} />
 
             {/* Register Button */}
-            <Button title="Register" type='outline' containerStyle={styles.button} />
+            <Button title="Register" type='outline' containerStyle={styles.button} onPress={() => navigation.navigate('Register')} />
             
             {/* Special fix to debug common issue where this keyboard smushes flush right below lowest element */}
             <View style={{ height: 150 }} />
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
 
     inputContainer: {
         width: 300,
-        
+
     },
 
     button: {
