@@ -25,22 +25,23 @@ const RegisterScreen = ({ navigation }) => {
             <Input 
                 placeholder='Email' 
                 type="email"
-                value={email} //to 'map' this value to the state fullName
-                onChangeText={text => setEmail(text)} // then add setFullName (Now you can type in Input field!)
+                value={email} //to 'map' this value to the state email
+                onChangeText={text => setEmail(text)} // then add setEmail (Now you can type in Input field!)
             />
             <Input 
                 placeholder='Password' 
                 type="text"
                 secureTextEntry
-                value={password} //to 'map' this value to the state fullName
-                onChangeText={text => setPassword(text)} // then add setFullName (Now you can type in Input field!)
+                value={password} //to 'map' this value to the state password
+                onChangeText={text => setPassword(text)} // then add setPasswrod (Now you can type in Input field!)
             />
             <Input 
                 placeholder='Profile Pic URL (Optional)' 
                 type="text"
                 secureTextEntry
-                value={imageUrl} //to 'map' this value to the state fullName
-                onChangeText={text => setImageUrl(text)} // then add setFullName (Now you can type in Input field!)
+                value={imageUrl} //to 'map' this value to the state imageUrl
+                onChangeText={text => setImageUrl(text)} // then add setImageUrl (Now you can type in Input field!)
+                onSubmitEditing={register} // Cool trick-when done editing and user taps 'return', the 'register' helper will trigger!
             />
         </View>
         </KeyboardAvoidingView>
