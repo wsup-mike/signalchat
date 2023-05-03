@@ -19,9 +19,9 @@ const analytics = getAnalytics(app);
 const Stack = createNativeStackNavigator();
 
 const globalScreenOptions = {
-  headerStyle: { backgroundColor: "#2c6bed" },
-  headerTitleStyle: { color: "white" },
-  headerTintColor: "white",
+  headerStyle: { backgroundColor: "#2c6bed" }, // header bg will be blue (Signal!)
+  headerTitleStyle: { color: "white" }, // to style the title itself white
+  headerTintColor: "white", //any icons placed in header will be white!
 };
 
 export default function App() {
