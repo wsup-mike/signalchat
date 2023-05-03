@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     },
 
     inputContainer: {
-
+        width: 300,
+        
     },
 
     button: {
