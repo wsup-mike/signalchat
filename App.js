@@ -14,10 +14,12 @@ const analytics = getAnalytics(app);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Lets build!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <Text>Lets build!</Text>
+        <StatusBar style="auto" />
+      </View>
+    </NavigationContainer>
   );
 }
 
