@@ -1,6 +1,6 @@
 import { View, Text, KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Input, Button } from '@rneui/base'
-import React, { useState } from 'react' // this component will create its own state
+import React, { useState, useLayoutEffect } from 'react' // this component will create its own state
 import { StatusBar } from 'expo-status-bar';
 
 const RegisterScreen = ({ navigation }) => {
@@ -9,6 +9,10 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
+    // An effect to implement right 'before' it PAINTS the UI (Not render - thats useEffect!)
+
+
+    
     const register = () => {
 
     }
