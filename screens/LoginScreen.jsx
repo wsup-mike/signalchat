@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 
