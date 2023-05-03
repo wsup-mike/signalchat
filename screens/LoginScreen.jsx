@@ -12,7 +12,7 @@ const LoginScreen = () => {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <StatusBar style='light' />
             <Image 
                 source={require('../assets/signallogo.jpg')}
@@ -46,6 +46,10 @@ const LoginScreen = () => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+
+    },
+    
     inputContainer: {
 
     },
