@@ -7,6 +7,10 @@ const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const signIn = () => {
+
+    }
+
     return (
         <View>
             <StatusBar style='light' />
