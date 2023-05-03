@@ -11,7 +11,7 @@ const LoginScreen = () => {
             source={require('../assets/signallogo.jpg')}
             style={{ width: 200, height: 200 }}
         />
-      <View>
+      <View style={styles.inputContainer}>
 
       </View>
     </View>
