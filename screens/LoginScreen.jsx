@@ -14,18 +14,24 @@ const LoginScreen = () => {
                 source={require('../assets/signallogo.jpg')}
                 style={{ width: 200, height: 200 }}
             />
-        <View style={styles.inputContainer}>
-            <Input 
-                placeholder='Email'
-                autoFocus
-                type="email"
-            />
-            <Input 
-                placeholder='Password'
-                type="password"
-                secureTextEntry //hides user input
-            />
-        </View>
+            {/* Email Fields */}
+            <View style={styles.inputContainer}>
+                <Input 
+                    placeholder='Email'
+                    autoFocus
+                    type="email"
+                    value={email}
+                    onChangeText={text => setEmail(text)}
+                />
+                <Input 
+                    placeholder='Password'
+                    type="password"
+                    secureTextEntry //hides user input
+                    value={password}
+                    onChangeText={text => setPassword(text)}
+                />
+            </View>
+
         </View>
     )
 }
