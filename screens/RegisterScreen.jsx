@@ -7,6 +7,7 @@ const RegisterScreen = ({ navigation }) => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [imgUrl, setImageUrl] = useState('');
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
@@ -23,10 +24,16 @@ const RegisterScreen = ({ navigation }) => {
             />
             <Input 
                 placeholder='email' 
-                autoFocus
                 type="email"
                 value={email} //to 'map' this value to the state fullName
-                onChangeText={text => setFullName(text)} // then add setFullName (Now you can type in Input field!)
+                onChangeText={text => setEmail(text)} // then add setFullName (Now you can type in Input field!)
+            />
+            <Input 
+                placeholder='password' 
+                type="text"
+                secureTextEntry
+                value={password} //to 'map' this value to the state fullName
+                onChangeText={text => setPassword(text)} // then add setFullName (Now you can type in Input field!)
             />
         </View>
         </KeyboardAvoidingView>
