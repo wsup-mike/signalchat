@@ -41,7 +41,7 @@ const LoginScreen = () => {
             {/* Register Button */}
             <Button title="Register" type='outline' containerStyle={styles.button} />
             
-            {/* Special fix to the bug that smushes this keyboard right below lowest element */}
+            {/* Special fix to debug common issue where this keyboard smushes flush right below lowest element */}
             <View style={{ height: 150 }} />
         </KeyboardAvoidingView>
     )
