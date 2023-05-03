@@ -31,6 +31,11 @@ const LoginScreen = () => {
                     onChangeText={text => setPassword(text)}
                 />
             </View>
+            {/* Login Button */}
+            <Button title="Login" containerStyle={styles.button} />
+
+            {/* Register Button */}
+            <Button title="Register" containerStyle={styles.button} />
 
         </View>
     )
@@ -38,6 +43,10 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create({
     inputContainer: {
+
+    },
+
+    button: {
 
     },
 })
