@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // Firebase-TODO: Add SDKs for Firebase products that you want to use
 // Firebase-https://firebase.google.com/docs/web/setup#available-libraries
+import { firebaseConfig } from "./firebase";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
