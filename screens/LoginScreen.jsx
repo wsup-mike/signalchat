@@ -12,7 +12,7 @@ const LoginScreen = () => {
     }
 
     return (
-        <KeyboardAvoidingView style={styles.container}>
+        <KeyboardAvoidingView behavior='padding' enabled style={styles.container}>
             <StatusBar style='light' />
             <Image 
                 source={require('../assets/signallogo.jpg')}
@@ -40,7 +40,9 @@ const LoginScreen = () => {
 
             {/* Register Button */}
             <Button title="Register" type='outline' containerStyle={styles.button} />
-
+            
+            {/* Special fix to the bug that smushes this keyboard right below lowest element */}
+            <View style={{ height: 150 }} />
         </KeyboardAvoidingView>
     )
 }
