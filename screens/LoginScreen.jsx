@@ -4,7 +4,7 @@ import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
