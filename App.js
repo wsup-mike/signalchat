@@ -18,10 +18,17 @@ const analytics = getAnalytics(app);
 
 const Stack = createNativeStackNavigator();
 
+const globalScreenOptions = {
+  headerStyle: { backgroundColor: "#2c6bed" },
+};
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={globalScreenOptions}
+      >
         <Stack.Screen
           name="Home"
           component={HomeScreen}
