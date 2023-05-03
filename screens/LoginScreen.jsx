@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
@@ -11,9 +11,18 @@ const LoginScreen = () => {
             source={require('../assets/signallogo.jpg')}
             style={{ width: 200, height: 200 }}
         />
-      <Text>LoginScreen</Text>
+      <View>
+
+      </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    inputContainer: {
+
+    }
+})
+
 
 export default LoginScreen
