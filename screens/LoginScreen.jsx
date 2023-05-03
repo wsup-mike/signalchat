@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState } from 'react'
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
@@ -12,7 +12,7 @@ const LoginScreen = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
             <StatusBar style='light' />
             <Image 
                 source={require('../assets/signallogo.jpg')}
@@ -41,7 +41,7 @@ const LoginScreen = () => {
             {/* Register Button */}
             <Button title="Register" type='outline' containerStyle={styles.button} />
 
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
