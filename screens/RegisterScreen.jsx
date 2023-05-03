@@ -16,7 +16,7 @@ const RegisterScreen = ({ navigation }) => {
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
             <StatusBar style='light' />
-            <Text h3 style={{ marginBottom: 50 }}>Create a new Signal Account</Text>
+            <Text h3 style={{ marginBottom: 50, fontSize: 20, fontWeight: 'bold', marginTop: 30, }}>Create a new Signal Account</Text>
 
             <View style={styles.inputContainer}>
                 <Input 
@@ -25,6 +25,7 @@ const RegisterScreen = ({ navigation }) => {
                     type="text"
                     value={fullName} //to 'map' this value to the state fullName
                     onChangeText={text => setFullName(text)} // then add setFullName (Now you can type in Input field!)
+                    
                 />
                 <Input 
                     placeholder='Email' 
@@ -55,7 +56,7 @@ const RegisterScreen = ({ navigation }) => {
                 containerStyle={styles.button}
             />
             {/* Spacing trick */}
-            <View style={{ height: 50 }}/>
+            <View style={{ height: 100 }}/>
             
         </KeyboardAvoidingView>
     )
@@ -73,12 +74,12 @@ const styles = StyleSheet.create({
     },
 
     inputContainer: {
-
+        width: 300,
     },
 
     button: {
         width: 200,
         marginTop: 10,
-        
+
     },
 });
