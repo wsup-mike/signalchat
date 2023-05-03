@@ -16,7 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        <Text>Lets build!</Text>
+        <Text>Lets build ok!</Text>
         <StatusBar style="auto" />
       </View>
     </NavigationContainer>
