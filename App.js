@@ -11,6 +11,7 @@ import { getAnalytics } from "firebase/analytics";
 import { firebaseConfig } from "./firebase";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -40,6 +41,11 @@ export default function App() {
           name="Login"
           component={LoginScreen}
           options={{ title: "Login Here!" }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={{ title: "Register Your Info Here!" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
