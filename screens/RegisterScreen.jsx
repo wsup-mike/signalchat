@@ -1,5 +1,5 @@
-import { View, Text, KeyboardAvoidingView, StyleSheet } from 'react-native'
-import { Input, Button } from '@rneui/base'
+import { View, KeyboardAvoidingView, StyleSheet } from 'react-native'
+import { Input, Button, Text } from '@rneui/base'
 import React, { useState, useLayoutEffect } from 'react' // this component will create its own state
 import { StatusBar } from 'expo-status-bar';
 
@@ -9,9 +9,11 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    // An effect to implement right 'before' it PAINTS the UI (Not render - thats useEffect!)
-
-
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerBackTitle: "Back to Login",
+        });
+    }, [navigation]);
     
     const register = () => {
 
@@ -20,7 +22,7 @@ const RegisterScreen = ({ navigation }) => {
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
             <StatusBar style='light' />
-            <Text h3 style={{ marginBottom: 50, fontSize: 20, fontWeight: 'bold', marginTop: 30, }}>Create a new Signal Account</Text>
+            <Text h3 style={{ marginBottom: 50 }}>Create a Signal Account</Text>
 
             <View style={styles.inputContainer}>
                 <Input 
