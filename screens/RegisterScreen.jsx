@@ -4,8 +4,9 @@ import React, { useState } from 'react' // this component will create its own st
 import { StatusBar } from 'expo-status-bar';
 
 const RegisterScreen = ({ navigation }) => {
-    const [ fullName, setFullName] = useState('');
-    const [ email, setEmail] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
