@@ -4,7 +4,7 @@ import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => { // passing down 'navigation' from StackScreen in app allows us this access to destrucutre it. Now no more need to import, useNavigation and cr8 the 'navigation' object
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
             <Button title="Login" containerStyle={styles.button} />
 
             {/* Register Button */}
-            <Button title="Register" type='outline' containerStyle={styles.button} />
+            <Button title="Register" type='outline' containerStyle={styles.button} onPress={() => navigation.navigate('Register')}/>
             
             {/* Special fix to debug common issue where this keyboard smushes flush right below lowest element */}
             <View style={{ height: 150 }} />
