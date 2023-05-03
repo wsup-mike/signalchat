@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const RegisterScreen = ({ navigation }) => {
     const [ fullName, setFullName] = useState('');
+    
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
@@ -17,7 +18,14 @@ const RegisterScreen = ({ navigation }) => {
                 autoFocus
                 type="text"
                 value={fullName} //to 'map' this value to the state fullName
-                onChangeText={text => setFullName(text)}
+                onChangeText={text => setFullName(text)} // then add setFullName (Now you can type in Input field!)
+            />
+            <Input 
+                placeholder='email' 
+                autoFocus
+                type="email"
+                value={email} //to 'map' this value to the state fullName
+                onChangeText={text => setFullName(text)} // then add setFullName (Now you can type in Input field!)
             />
         </View>
         </KeyboardAvoidingView>
