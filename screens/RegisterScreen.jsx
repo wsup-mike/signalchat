@@ -1,7 +1,8 @@
+import React, { useState } from 'react' // this RegisterScreen component will create its own state
 import { View, KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Input, Button, Text } from '@rneui/base'
-import React, { useState, useLayoutEffect } from 'react' // this component will create its own state
 import { StatusBar } from 'expo-status-bar';
+import { useLayoutEffect } from 'react';
 
 const RegisterScreen = ({ navigation }) => {
     const [fullName, setFullName] = useState('');
@@ -9,11 +10,11 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerBackTitle: "Back to Login",
-        });
-    }, [navigation]);
+    // useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //         headerBackTitle: "Back to Login"
+    //     });
+    // }, [navigation]);
     
     const register = () => {
 
