@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const RegisterScreen = ({ navigation }) => {
     const [ fullName, setFullName] = useState('');
-    
+    const [ email, setEmail] = useState('');
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
