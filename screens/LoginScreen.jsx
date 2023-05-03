@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <View>
