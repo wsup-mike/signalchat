@@ -54,6 +54,8 @@ const RegisterScreen = ({ navigation }) => {
                 raised // makes it appear raised (shadow effect beneath)
                 containerStyle={styles.button}
             />
+            {/* Spacing trick */}
+            <View style={{ height: 50 }}/>
             
         </KeyboardAvoidingView>
     )
