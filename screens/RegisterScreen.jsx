@@ -10,7 +10,7 @@ const RegisterScreen = ({ navigation }) => {
         <StatusBar style='light' />
       <Text h3 style={{ marginBottom: 50 }}>Create a new Signal Account</Text>
 
-      <View>
+      <View style={styles.inputContainer}>
         <Input />
       </View>
     </KeyboardAvoidingView>
@@ -24,4 +24,8 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
+
+    inputContainer: {
+
+    }
 });
