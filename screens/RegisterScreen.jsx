@@ -1,4 +1,5 @@
-import { View, Text, KeyboardAvoidingView, StyleSheet, Input } from 'react-native'
+import { View, Text, KeyboardAvoidingView, StyleSheet } from 'react-native'
+import { Input, Button } from '@rneui/base'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 
