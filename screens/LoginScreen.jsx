@@ -35,7 +35,7 @@ const LoginScreen = () => {
             <Button title="Login" containerStyle={styles.button} />
 
             {/* Register Button */}
-            <Button title="Register" containerStyle={styles.button} />
+            <Button title="Register" type='outline' containerStyle={styles.button} />
 
         </View>
     )
