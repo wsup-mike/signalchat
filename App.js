@@ -13,6 +13,8 @@ import { firebaseConfig } from "./firebase";
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
