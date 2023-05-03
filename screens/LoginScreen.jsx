@@ -12,7 +12,9 @@ const LoginScreen = () => {
             style={{ width: 200, height: 200 }}
         />
       <View style={styles.inputContainer}>
-
+        <Input 
+            placeholder='Email'
+        />
       </View>
     </View>
   )
@@ -21,7 +23,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
     inputContainer: {
 
-    }
+    },
 })
 
 
