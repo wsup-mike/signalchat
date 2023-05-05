@@ -10,11 +10,11 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    // useLayoutEffect(() => {
-    //     navigation.setOptions({
-    //         headerBackTitle: "Back to Login"
-    //     });
-    // }, [navigation]);
+    useLayoutEffect(() => { // for right before the screen 'paints' the display
+        navigation.setOptions({
+            headerBackTitle: "Login"
+        });
+    }, [navigation]);
     
     const register = () => {
     }
