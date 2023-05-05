@@ -17,7 +17,6 @@ const RegisterScreen = ({ navigation }) => {
     }, [navigation]);
     
     const register = () => {
-
     }
 
     return (
