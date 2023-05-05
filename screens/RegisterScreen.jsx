@@ -5,7 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-const navigation = useNavigation();
 
 const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
@@ -13,11 +12,8 @@ const RegisterScreen = () => {
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerBackTitle: "Login"
-        })
-    }, [navigation]);
+    const navigation = useNavigation();
+
 
     
     const register = () => {
