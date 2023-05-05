@@ -24,3 +24,6 @@ if (firebase.apps.length === 0) {
 } else {
   app = firebase.app();
 }
+
+// Here to set up our database access
+const db = app.firestore();
