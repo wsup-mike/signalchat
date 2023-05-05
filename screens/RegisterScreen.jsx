@@ -4,7 +4,7 @@ import { Input, Button, Text } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
