@@ -27,3 +27,8 @@ if (firebase.apps.length === 0) {
 
 // Here to set up our database access
 const db = app.firestore();
+
+// Here set up firebase authentication variable
+const auth = firebase.auth();
+
+export { db, auth };
