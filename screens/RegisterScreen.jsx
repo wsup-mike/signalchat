@@ -14,6 +14,11 @@ const RegisterScreen = () => {
 
     const navigation = useNavigation();
 
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerBackTitle: "Back to Login"
+        })
+    }, [navigation]);
 
     
     const register = () => {
