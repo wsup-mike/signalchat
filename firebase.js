@@ -4,7 +4,8 @@ import * as firebase from "firebase"; //first import firebase
 import "firebase/firestore";
 import "firebase/auth";
 
-// Your web app's Firebase configuration (To initialize firebase)
+// To initialize firebase:
+// First here's your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
   apiKey: "AIzaSyCi3nH7srxwJbmEeo6DQNl2R2m8psPVuQI",
@@ -15,3 +16,11 @@ export const firebaseConfig = {
   appId: "1:818485681140:web:9869ab4587c6e2d39d37a1",
   measurementId: "G-1K3GMHKFTS",
 };
+
+let app;
+
+if (firebase.apps.length === 0) {
+  app = firebase.initializeApp(firebaseConfig);
+} else {
+  app = firebase.app();
+}
