@@ -4,17 +4,13 @@ import { Input, Button, Text } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
 
-    useLayoutEffect(() => { // for right before the screen 'paints' the display
-        navigation.setOptions({
-            headerBackTitle: "Login"
-        });
-    }, [navigation]);
+
     
     const register = () => {
     }
