@@ -4,6 +4,7 @@ import { Input, Button, Text } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { auth, db } from '../firebase';
 
 
 const RegisterScreen = () => {
