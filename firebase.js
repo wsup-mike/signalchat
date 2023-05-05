@@ -1,6 +1,10 @@
 import * as firebase from "firebase"; //first import firebase
 
-// Your web app's Firebase configuration
+//Below to manually import the optional services we want:
+import "firebase/firestore";
+import "firebase/auth";
+
+// Your web app's Firebase configuration (To initialize firebase)
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
   apiKey: "AIzaSyCi3nH7srxwJbmEeo6DQNl2R2m8psPVuQI",
