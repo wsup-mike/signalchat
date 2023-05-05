@@ -3,6 +3,9 @@ import { View, KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Input, Button, Text } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
+const navigation = useNavigation();
 
 const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
