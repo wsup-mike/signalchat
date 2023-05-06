@@ -11,11 +11,13 @@ const LoginScreen = ({ navigation }) => { // passing down 'navigation' from Stac
     const [password, setPassword] = useState('');
 
     useEffect(() => {
-        auth.onAuthStateChanged((userCredential) => {
+        const unsubscribe = auth.onAuthStateChanged((userCredential) => { // 1 To 'create' the listener!
             if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
                 navigation.replace("Home");
             }
         });
+
+        return unsubscribe; // 2 To 'remove' the listener
     }, []);
         
     const signIn = () => {
