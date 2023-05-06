@@ -1,6 +1,7 @@
 // // import * as firebase from "firebase"; //first import firebase
 import { initializeApp } from "firebase/app";
 // import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 // //Below to manually import the optional services we want:
 import "firebase/firestore";
@@ -31,7 +32,7 @@ const app = initializeApp(firebaseConfig);
 
 // Here to set up our database access
 // const db = app.firestore();
-// const db = app.firestore();
+const db = getFirestore(app);
 
 // // Here set up firebase authentication variable
 // const auth = getAuth(app);
