@@ -30,6 +30,7 @@ const app = initializeApp(firebaseConfig);
 // }
 
 // Here to set up our database access
+// const db = app.firestore();
 const db = app.firestore();
 
 // Here set up firebase authentication variable
