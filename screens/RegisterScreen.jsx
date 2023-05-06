@@ -27,28 +27,29 @@ const RegisterScreen = () => {
     const register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                
+            //handle successful registration
+                userCredential.update({
+                    displayName: fullName,
+                    photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg',
+                })
             })
+            .catch((error) => {
+                alert(error.message) // display the error to user)
+            });
     };
-    
-    // const register = () => {
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             const user = userCredential.user;
 
-    //             //Update the user's displayName and photoURL fields
-    //             user.updateProfile({
-    //                 displayName: fullName,
-    //                 photoURL: imageUrl || '../assets/stockcprofilepic.jpg',
-    //             })
-    //             .then(() => {
-    //             //Account created with updated profile
+    // const registerUser = () => {
+    //     auth
+    //         .createUserWithEmailAndPassword(email, password)
+    //         .then((authUser) => {
+    //             authUser.user.update({
+    //                 displayName: name,
+    //                 photoURL: imageUrl || "https://cencomp.com/abatar.png"
+    //             });
+    //         })
+    //         .catch((error) => alert(error.message))
+    // }
 
-    //             })
-    //             .catch((error) => alert(error.message)); //Error updating profile
-    //     })
-    //     .catch((error) => alert(error.message));
-    // };
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
