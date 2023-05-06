@@ -7,7 +7,7 @@ import { getFirestore } from "firebase/firestore";
 
 // //Below to manually import the optional services we want:
 // import "firebase/firestore";
-import "firebase/auth";
+// import "firebase/auth";
 
 // To initialize firebase:
 // First here's your web app's Firebase configuration
