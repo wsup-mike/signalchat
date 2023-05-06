@@ -1,4 +1,6 @@
-import * as firebase from "firebase"; //first import firebase
+// import * as firebase from "firebase"; //first import firebase
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 //Below to manually import the optional services we want:
 import "firebase/firestore";
@@ -17,13 +19,15 @@ export const firebaseConfig = {
   measurementId: "G-1K3GMHKFTS",
 };
 
-let app;
+const app = initializeApp(firebaseConfig);
 
-if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig);
-} else {
-  app = firebase.app();
-}
+// let app;
+
+// if (firebase.apps.length === 0) {
+//   app = firebase.initializeApp(firebaseConfig);
+// } else {
+//   app = firebase.app();
+// }
 
 // Here to set up our database access
 const db = app.firestore();
