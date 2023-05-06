@@ -1,4 +1,3 @@
-// // import * as firebase from "firebase"; //first import firebase
 import { initializeApp } from "firebase/app";
 // import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -21,14 +20,6 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-// let app;
-
-// if (firebase.apps.length === 0) {
-//   app = firebase.initializeApp(firebaseConfig);
-// } else {
-//   app = firebase.app();
-// }
 
 // Here to set up our database access
 // const db = app.firestore();
