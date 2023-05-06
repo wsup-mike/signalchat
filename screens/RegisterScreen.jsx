@@ -23,7 +23,7 @@ const RegisterScreen = () => {
         })
     }, [navigation]);
 
-    
+    const register = () => {};
     
     // const register = () => {
     //     createUserWithEmailAndPassword(auth, email, password)
