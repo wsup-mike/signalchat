@@ -38,19 +38,6 @@ const RegisterScreen = () => {
             });
     };
 
-    // const registerUser = () => {
-    //     auth
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then((authUser) => {
-    //             authUser.user.update({
-    //                 displayName: name,
-    //                 photoURL: imageUrl || "https://cencomp.com/abatar.png"
-    //             });
-    //         })
-    //         .catch((error) => alert(error.message))
-    // }
-
-
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
             <StatusBar style='light' />
