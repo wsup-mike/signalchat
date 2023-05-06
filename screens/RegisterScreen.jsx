@@ -28,12 +28,19 @@ const RegisterScreen = () => {
     const register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                //Signed in
-            
-                
-            })
-        .catch((error) => alert(error.message))
-    }
+                const user = userCredential.user;
+
+                //Update the user's displayName and photoURL fields
+                user.updateProfile({
+                    displayName: fullName,
+                    photoURL: imageUrl || '../assets/stockcprofilepic.jpg',
+                })
+                .then(() => {
+                    //Account created with updated profile
+                })
+                .catch((error) => alert(error.message)) //Error updating profile
+            }
+        }
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
