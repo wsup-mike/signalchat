@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
+//To use the auth service
+import { getAuth } from "firebase/auth";
+
+//To use the firestore service
 import { getFirestore } from "firebase/firestore";
 
 // //Below to manually import the optional services we want:
