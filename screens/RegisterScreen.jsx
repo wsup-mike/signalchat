@@ -25,24 +25,24 @@ const RegisterScreen = () => {
 
     
     
-    const register = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+    // const register = () => {
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //             const user = userCredential.user;
 
-                //Update the user's displayName and photoURL fields
-                user.updateProfile({
-                    displayName: fullName,
-                    photoURL: imageUrl || '../assets/stockcprofilepic.jpg',
-                })
-                .then(() => {
-                //Account created with updated profile
+    //             //Update the user's displayName and photoURL fields
+    //             user.updateProfile({
+    //                 displayName: fullName,
+    //                 photoURL: imageUrl || '../assets/stockcprofilepic.jpg',
+    //             })
+    //             .then(() => {
+    //             //Account created with updated profile
 
-                })
-                .catch((error) => alert(error.message)); //Error updating profile
-        })
-        .catch((error) => alert(error.message));
-    };
+    //             })
+    //             .catch((error) => alert(error.message)); //Error updating profile
+    //     })
+    //     .catch((error) => alert(error.message));
+    // };
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
