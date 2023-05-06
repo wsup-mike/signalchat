@@ -30,4 +30,4 @@ const db = getFirestore(app);
 // // Here set up firebase authentication variable
 const auth = getAuth(app);
 
-export { db };
+export { db, auth };
