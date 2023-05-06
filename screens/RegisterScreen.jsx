@@ -28,7 +28,7 @@ const RegisterScreen = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
             //handle successful registration
-                userCredential.update({
+                userCredential.user.updateProfile({
                     displayName: fullName,
                     photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg',
                 })
