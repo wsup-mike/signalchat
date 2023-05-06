@@ -1,10 +1,10 @@
-// import * as firebase from "firebase"; //first import firebase
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+// // import * as firebase from "firebase"; //first import firebase
+// import { initializeApp } from "firebase/app";
+// import { getAuth } from "firebase/auth";
 
-//Below to manually import the optional services we want:
-import "firebase/firestore";
-import "firebase/auth";
+// //Below to manually import the optional services we want:
+// import "firebase/firestore";
+// import "firebase/auth";
 
 // To initialize firebase:
 // First here's your web app's Firebase configuration
@@ -19,7 +19,7 @@ export const firebaseConfig = {
   measurementId: "G-1K3GMHKFTS",
 };
 
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
 // let app;
 
@@ -31,9 +31,9 @@ const app = initializeApp(firebaseConfig);
 
 // Here to set up our database access
 // const db = app.firestore();
-const db = app.firestore();
+// const db = app.firestore();
 
-// Here set up firebase authentication variable
-const auth = getAuth(app);
+// // Here set up firebase authentication variable
+// const auth = getAuth(app);
 
-export { db, auth };
+// export { db, auth };
