@@ -23,7 +23,13 @@ const RegisterScreen = () => {
         })
     }, [navigation]);
 
-    const register = () => {};
+    
+    const register = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                
+            })
+    };
     
     // const register = () => {
     //     createUserWithEmailAndPassword(auth, email, password)
