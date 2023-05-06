@@ -1,12 +1,16 @@
 import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
+import { auth } from '../firebase';
+
 
 
 const LoginScreen = ({ navigation }) => { // passing down 'navigation' from StackScreen in app allows us this access to destrucutre it. Now no more need to import, useNavigation and cr8 the 'navigation' object
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {}, []);
 
     const signIn = () => {
 
