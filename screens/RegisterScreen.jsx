@@ -5,6 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { auth, db } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 
 const RegisterScreen = () => {
@@ -22,7 +24,15 @@ const RegisterScreen = () => {
     }, [navigation]);
 
     
+    
     const register = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                //Signed in
+            
+                
+            })
+        .catch((error) => alert(error.message))
     }
 
     return (
