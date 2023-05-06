@@ -10,8 +10,14 @@ const LoginScreen = ({ navigation }) => { // passing down 'navigation' from Stac
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    useEffect(() => {}, []);
-
+    useEffect(() => {
+        auth.onAuthStateChanged((userCredential) => {
+            if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
+                navigation.replace("Home");
+            }
+        });
+    }, []);
+        
     const signIn = () => {
 
     }
