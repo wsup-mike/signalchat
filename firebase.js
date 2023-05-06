@@ -33,6 +33,6 @@ const app = initializeApp(firebaseConfig);
 const db = app.firestore();
 
 // Here set up firebase authentication variable
-const auth = firebase.auth();
+const auth = getAuth(app);
 
 export { db, auth };
