@@ -36,11 +36,13 @@ const RegisterScreen = () => {
                     photoURL: imageUrl || '../assets/stockcprofilepic.jpg',
                 })
                 .then(() => {
-                    //Account created with updated profile
+                //Account created with updated profile
+
                 })
-                .catch((error) => alert(error.message)) //Error updating profile
-            }
-        }
+                .catch((error) => alert(error.message)); //Error updating profile
+        })
+        .catch((error) => alert(error.message));
+    };
 
     return (
         <KeyboardAvoidingView behavior='padding' style={styles.container}> 
