@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => { // passing down 'navigation' from Stac
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userCredential) => { // 1 To 'create' the listener!
-            console.log(userCredential)
+            // console.log(userCredential)
             if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
                 navigation.replace("Home");
             }
