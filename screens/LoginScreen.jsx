@@ -15,7 +15,7 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
         const unsubscribe = auth.onAuthStateChanged((userCredential) => { // 1 To 'create' the listener!
             // console.log(userCredential)
             if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
-                navigation.reset
+                navigation.replace
             }
         });
 
