@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import { useNavigation, setOptions } from '@react-navigation/native';
 import { auth, db } from '../firebase';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 
 const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
@@ -20,21 +20,20 @@ const RegisterScreen = () => {
             headerBackTitle: "Login"
         })
     }, [navigation]);
-    // useLayoutEffect(() => {
-    //     navigation.setOptions({
-    //         headerBackTitle: "Login"
-    //     })
-    // }, [navigation]);
-
     
     const register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
             //handle successful registration
-                userCredential.user.updateProfile({
-                    displayName: fullName,
-                    photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg',
-                })
+            //     userCredential.user.updateProfile({
+            //         displayName: fullName,
+            //         photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg',
+            //     })
+            const user = userCredential.user;
+            updateProfile(user, {
+                displayName: fullName,
+                photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg'
+            })
             })
             .catch((error) => {
                 alert(error.message) // display the error to user)
