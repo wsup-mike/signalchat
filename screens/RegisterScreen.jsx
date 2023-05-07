@@ -5,9 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { auth, db } from '../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-
-
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const RegisterScreen = () => {
     const [fullName, setFullName] = useState('');
@@ -17,11 +15,11 @@ const RegisterScreen = () => {
 
     const navigation = useNavigation();
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerBackTitle: "Login"
-        })
-    }, [navigation]);
+    // useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //         headerBackTitle: "Login"
+    //     })
+    // }, [navigation]);
 
     
     const register = () => {
