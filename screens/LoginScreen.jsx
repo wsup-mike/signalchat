@@ -1,18 +1,21 @@
 import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import { useNavigation } from '@react-navigation/native';
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
 
-const LoginScreen = ({ navigation }) => { // passing down 'navigation' from StackScreen in app allows us this access to destrucutre it. Now no more need to import, useNavigation and cr8 the 'navigation' object
+const LoginScreen = () => { // passing down 'navigation' from StackScreen in app allows us this access to destrucutre it. Now no more need to import, useNavigation and cr8 the 'navigation' object
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigation = useNavigation();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userCredential) => { // 1 To 'create' the listener!
             // console.log(userCredential)
             if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
-                // navigation.replace("Home")
+                navigation.navigate("Home")
             }
         });
 
