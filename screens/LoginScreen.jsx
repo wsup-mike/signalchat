@@ -13,8 +13,12 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userCredential) => {
-            navigation.dispatch(StackActions.replace('Home'));
-        })
+            if (userCredential) {
+                navigation.dispatch(StackActions.replace('Home'));
+            }
+        });
+
+        return unsubscribe;
     }, [navigation]);
 
         
