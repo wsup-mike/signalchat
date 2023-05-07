@@ -4,10 +4,17 @@ import { ListItem, Avatar } from '@rneui/base'
 
 const CustomListItem = () => {
   return (
-    <View>
-      <Text>CustomListItem</Text>
-    </View>
+    <ListItem>
+        <Avatar 
+            rounded
+            source={{
+                uri: require('../assets/stockprofilepic.jpg'),
+            }}
+            size={'small'}
+        />
+    </ListItem>
   )
 }
 
 export default CustomListItem
+
