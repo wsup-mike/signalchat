@@ -3,10 +3,10 @@ import React, { useLayoutEffect } from 'react'
 import CustomListItem from '../components/CustomListItem'
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
-    
+
   }, [])
 
   return (
