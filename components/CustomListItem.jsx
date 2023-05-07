@@ -7,9 +7,9 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
     <ListItem>
         <Avatar 
             rounded
-            source={{
-                uri: require('../assets/stockprofilepic.jpg'),
-            }}
+            source={
+                require('../assets/stockprofilepic.jpg')
+            }
             size={'small'}
         />
         <ListItem.Content>
