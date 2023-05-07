@@ -12,6 +12,14 @@ const CustomListItem = () => {
             }}
             size={'small'}
         />
+        <ListItem.Content>
+            <ListItem.Title style={{ fontWeight: '800'}}>
+                YouTube Chat
+            </ListItem.Title>
+            <ListItem.Subtitle numberOfLines={1} ellipsizeMode='tail'> 
+                Here is a test subtitle! Here is a test subtitle! Here is a test subtitle!
+            </ListItem.Subtitle>
+        </ListItem.Content>
     </ListItem>
   )
 }
