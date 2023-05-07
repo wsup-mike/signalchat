@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { useNavigation, StackActions } from '@react-navigation/native';
+import { useNavigation, StackActions, CommonActions } from '@react-navigation/native';
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
@@ -14,7 +14,9 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userCredential) => {
             if (userCredential) {
-                navigation.dispatch(StackActions.replace('Home'));
+                navigation.dispatch(
+                    StackActions.replace("Home")
+                );
             }
         });
 
