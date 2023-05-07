@@ -24,16 +24,11 @@ const RegisterScreen = () => {
     const register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-            //handle successful registration
-            //     userCredential.user.updateProfile({
-            //         displayName: fullName,
-            //         photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg',
-            //     })
-            const user = userCredential.user;
-            updateProfile(user, {
-                displayName: fullName,
-                photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg'
-            })
+                const user = userCredential.user;
+                updateProfile(user, {
+                    displayName: fullName,
+                    photoURL: imageUrl ? imageUrl : '../assets/signallogo.jpg'
+                })
             })
             .catch((error) => {
                 alert(error.message) // display the error to user)
