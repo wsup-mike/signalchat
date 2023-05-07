@@ -3,7 +3,7 @@ import { View, KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { Input, Button, Text } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { useLayoutEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, setOptions } from '@react-navigation/native';
 import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
@@ -15,6 +15,11 @@ const RegisterScreen = () => {
 
     const navigation = useNavigation();
 
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerBackTitle: "Login"
+        })
+    }, [navigation]);
     // useLayoutEffect(() => {
     //     navigation.setOptions({
     //         headerBackTitle: "Login"
