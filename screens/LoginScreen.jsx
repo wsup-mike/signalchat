@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, StackActions } from '@react-navigation/native';
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
@@ -10,17 +10,13 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
     const [password, setPassword] = useState('');
 
     const navigation = useNavigation();
-
+    
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((userCredential) => { // 1 To 'create' the listener!
-            // console.log(userCredential)
-            if (userCredential) { // if user is already authenticated, then we will simply push user 2 homepage
-                navigation.replace
-            }
-        });
+        const unsubscribe = auth.onAuthStateChanged((userCredential) => {
+            navigation.dispatch(StackActions.replace('Home'));
+        })
+    }, [navigation]);
 
-        return unsubscribe; // 2 To 'remove' the listener
-    }, []);
         
     const signIn = () => {
 
