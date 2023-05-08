@@ -15,7 +15,14 @@ const HomeScreen = () => {
       headerStyle: { backgroundColor: "#fff"}, //make header bgcolor white
       headerTitleStyle: { color: "black"}, // make title color black
       headerTintColor: "black", //make any image logos here black
-
+      headerLeft: () => { // We pass a COMPONENT here!
+        <View>
+          <Avatar 
+            rounded
+            source={ require('../assets/stockprofilepic.jpg')}
+          />
+        </View>
+      }
     })
   }, [])
 
