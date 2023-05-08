@@ -3,6 +3,7 @@ import React, { useLayoutEffect } from 'react'
 import CustomListItem from '../components/CustomListItem'
 import { useNavigation } from '@react-navigation/native'
 import { Avatar } from '@rneui/base'
+import { auth } from '../firebase';
 
 
 const HomeScreen = () => {
@@ -19,11 +20,9 @@ const HomeScreen = () => {
         <View style={{ marginLeft: 20 }}> 
           <Avatar 
             rounded
-            source={ 
-              require('../assets/stockprofilepic.jpg')
-            }
+            source={{ uri: auth?.currentUser?.photoURL }} // if both user authenticated and photoURL submitted
+            // source={{ uri: 'https://picsum.photos/200/300.jpg'}}
             size={'small'}
-
           />
         </View>
       },
