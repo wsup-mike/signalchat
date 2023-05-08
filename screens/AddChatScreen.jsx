@@ -42,7 +42,9 @@ const AddChatScreen = ({ navigation }) => {
             size={24}
             color='black'
           />
+          
         }
+        onSubmitEditing={createChat}
       />
       <Button 
         onPress={createChat}
