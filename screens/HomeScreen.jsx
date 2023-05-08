@@ -46,10 +46,19 @@ const HomeScreen = () => {
             marginRight: 20,
             width: 80,
             justifyContent: 'space-between',
+            borderWidth: 1,
+            borderColor: 'blue'
           }}> 
             <TouchableOpacity>
               <AntDesign 
                 name='camerao'
+                size={24}
+                color='black'
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <SimpleLineIcons 
+                name='pencil'
                 size={24}
                 color='black'
               />
