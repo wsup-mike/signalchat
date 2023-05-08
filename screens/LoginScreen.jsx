@@ -4,6 +4,7 @@ import { useNavigation, StackActions } from '@react-navigation/native';
 import { Button, Input, Image } from '@rneui/base'
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const LoginScreen = () => { // passing down 'navigation' from StackScreen in app allows us this access to destrucutre it. Now no more need to import, useNavigation and cr8 the 'navigation' object
     const [email, setEmail] = useState('');
@@ -25,6 +26,8 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
 
         
     const signIn = () => {
+        
+        
         navigation.navigate('Home')
     }
 
