@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { Button, Input } from '@rneui/base'
 
-
-
 const AddChatScreen = ({ navigation }) => {
+
+  const [input, setInput] = useState('');
 
   useLayoutEffect(() => {
     navigation.setOptions({ 
