@@ -43,8 +43,8 @@ const HomeScreen = () => {
         return (
           <View style={{ 
             flexDirection: 'row',  
-            marginRight: 20,
-            width: 80,
+            marginRight: 10,
+            width: 70,
             justifyContent: 'space-between',
             borderWidth: 1,
             borderColor: 'blue'
@@ -56,7 +56,9 @@ const HomeScreen = () => {
                 color='black'
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity 
+              onPress={() => navigation.navigate('AddChat')}
+            >
               <SimpleLineIcons 
                 name='pencil'
                 size={24}
@@ -67,7 +69,7 @@ const HomeScreen = () => {
         )
       },
     })
-  }, [])
+  }, [navigation])
 
   return (
     <SafeAreaView>
