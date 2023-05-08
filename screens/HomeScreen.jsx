@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import CustomListItem from '../components/CustomListItem'
 import { useNavigation } from '@react-navigation/native'
+import { Avatar } from '@rneui/base'
 
 
 const HomeScreen = () => {
@@ -14,6 +15,7 @@ const HomeScreen = () => {
       headerStyle: { backgroundColor: "#fff"}, //make header bgcolor white
       headerTitleStyle: { color: "black"}, // make title color black
       headerTintColor: "black", //make any image logos here black
+
     })
   }, [])
 
