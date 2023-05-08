@@ -25,7 +25,7 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
 
         
     const signIn = () => {
-
+        navigation.navigate('Home')
     }
 
     return (
@@ -53,10 +53,19 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
                 />
             </View>
             {/* Login Button */}
-            <Button title="Login" containerStyle={styles.button} />
+            <Button 
+                title="Login" 
+                containerStyle={styles.button} 
+                onPress={signIn}
+            />
 
             {/* Register Button */}
-            <Button title="Register" type='outline' containerStyle={styles.button} onPress={() => navigation.navigate('Register')}/>
+            <Button 
+                title="Register" 
+                type='outline' 
+                containerStyle={styles.button} 
+                onPress={() => navigation.navigate('Register')}
+            />
             
             {/* Special fix to debug common issue where this keyboard smushes flush right below lowest element */}
             <View style={{ height: 150 }} />
