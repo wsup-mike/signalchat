@@ -19,7 +19,11 @@ const HomeScreen = () => {
         <View> 
           <Avatar 
             rounded
-            source={ require('../assets/stockprofilepic.jpg')}
+            source={ 
+              require('../assets/stockprofilepic.jpg')
+            }
+            size={'small'}
+
           />
         </View>
       }
