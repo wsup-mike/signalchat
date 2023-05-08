@@ -6,8 +6,7 @@ import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { auth } from '../firebase';
 import { db } from '../firebase'
-import { addDoc, collection} from 'firebase/firestore'
-
+import { addDoc, collection, doc} from 'firebase/firestore'
 
 const HomeScreen = () => {
   const [chats, setChats] = useState([]); // an empty array
@@ -23,7 +22,14 @@ const HomeScreen = () => {
   }
 
   useEffect(() => {
-    
+    const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
+      setChats(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+
+    return unsubscribe;
   }, [])
 
   useLayoutEffect(() => {
@@ -81,7 +87,14 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <CustomListItem />
+        {chats.map(({ id, data: { chatName }}) => (
+          <CustomListItem 
+            key={id}
+            id={id}
+            chatName={chatName}
+          />
+        ))}
+        
       </ScrollView>
     </SafeAreaView>
   )
