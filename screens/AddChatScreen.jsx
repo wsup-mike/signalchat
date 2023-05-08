@@ -18,6 +18,8 @@ const AddChatScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Input 
         placeholder='Enter a chat name'
+        value={input}
+        onChangeText={(text) => setInput(text)} //Now you should be able to type into box fields
       />
     </View>
   )
