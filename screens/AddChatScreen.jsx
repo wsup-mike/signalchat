@@ -3,7 +3,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Button, Input } from '@rneui/base'
 import { Entypo } from '@expo/vector-icons'
 import { db } from '../firebase'
-import { collection } from 'firebase/firestore'
+import { addDoc, collection} from 'firebase/firestore'
 
 const AddChatScreen = ({ navigation }) => {
 
@@ -17,14 +17,12 @@ const AddChatScreen = ({ navigation }) => {
   }, [navigation]
   )
 
-  const createChat = async () => {
-    await db.collection('chats').add({
-      chatName: input
-    })
-    .then(() => {
-      navigation.goBack()
-    }).catch((error) => alert(error))
-  };
+  const createChat = () => {
+    
+  }
+  
+
+
 
   return (
     <View style={styles.container}>
@@ -41,7 +39,7 @@ const AddChatScreen = ({ navigation }) => {
         }
       />
       <Button 
-        onPress={() => {}}
+        onPress={createChat}
         title="Create new chat"
       />
     </View>
