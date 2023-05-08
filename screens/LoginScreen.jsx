@@ -50,6 +50,7 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
                     secureTextEntry //hides user input
                     value={password}
                     onChangeText={text => setPassword(text)}
+                    onSubmitEditing={signIn}
                 />
             </View>
             {/* Login Button */}
