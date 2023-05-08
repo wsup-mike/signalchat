@@ -27,7 +27,7 @@ const HomeScreen = () => {
       headerLeft: () => { // We pass a COMPONENT here!
         return (
           <View style={{ marginLeft: 20 }}> 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={signOut}>
               <Avatar 
                 rounded
                 source={{ uri: auth?.currentUser?.photoURL }} // if both user authenticated and photoURL submitted
