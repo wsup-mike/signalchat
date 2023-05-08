@@ -5,8 +5,6 @@ import { Entypo } from '@expo/vector-icons'
 import { db } from '../firebase'
 import { collection } from 'firebase/firestore'
 
-
-
 const AddChatScreen = ({ navigation }) => {
 
   const [input, setInput] = useState('');
