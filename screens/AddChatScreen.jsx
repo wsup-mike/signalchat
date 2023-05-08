@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import { Button, Input } from '@rneui/base'
 import { Entypo } from '@expo/vector-icons'
+import { db } from '../firebase'
+
 
 
 const AddChatScreen = ({ navigation }) => {
@@ -15,6 +17,8 @@ const AddChatScreen = ({ navigation }) => {
     })
   }, [navigation]
   )
+
+
   
   return (
     <View style={styles.container}>
