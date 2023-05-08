@@ -26,9 +26,9 @@ const LoginScreen = () => { // passing down 'navigation' from StackScreen in app
 
         
     const signIn = () => {
-        
-        
-        navigation.navigate('Home')
+        auth
+            .signInWithEmailAndPassword(auth, email, password)
+            .catch(error => alert(error));
     }
 
     return (
