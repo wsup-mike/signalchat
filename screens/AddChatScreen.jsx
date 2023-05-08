@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import { Button, Input } from '@rneui/base'
+import { Entypo } from '@expo/vector-icons'
+
 
 const AddChatScreen = ({ navigation }) => {
 
@@ -20,6 +22,13 @@ const AddChatScreen = ({ navigation }) => {
         placeholder='Enter a chat name'
         value={input}
         onChangeText={(text) => setInput(text)} //Now you should be able to type into box fields
+        leftIcon={
+          <Entypo
+            name='chat' 
+            size={24}
+            color='black'
+          />
+        }
       />
     </View>
   )
