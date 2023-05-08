@@ -17,8 +17,14 @@ const AddChatScreen = ({ navigation }) => {
   }, [navigation]
   )
 
-  const createChat = () => {
-    
+  const createChat = async () => {
+    try {
+      const docRef = await addDoc(collection(db, 'chats'),    { chatName: input });
+      console.log(`Document written with ID: ${docRef.id}`)
+      navigation.goBack()
+    } catch (error) {
+      () => alert.error
+    }
   }
   
 
