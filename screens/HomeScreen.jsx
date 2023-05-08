@@ -41,7 +41,12 @@ const HomeScreen = () => {
       },
       headerRight: () => { // We pass a COMPONENT here!
         return (
-          <View style={{ marginLeft: 20 }}> 
+          <View style={{ 
+            flexDirection: 'row',  
+            marginRight: 20,
+            width: 80,
+            justifyContent: 'space-between',
+          }}> 
             <TouchableOpacity>
               <AntDesign 
                 name='camerao'
