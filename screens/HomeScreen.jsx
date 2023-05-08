@@ -10,7 +10,10 @@ const HomeScreen = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: 'Signal'
+      title: 'Signal', // the header title
+      headerStyle: { backgroundColor: "#fff"}, //make header bgcolor white
+      headerTitleStyle: { color: "black"}, // make title color black
+      headerTintColor: "black", //make any image logos here black
     })
   }, [])
 
