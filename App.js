@@ -13,6 +13,7 @@ import { firebaseConfig } from "./firebase";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import AddChatScreen from "./screens/AddChatScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,11 @@ export default function App() {
           name="Register"
           component={RegisterScreen}
           options={{ title: "Register Your Info Here!" }}
+        />
+        <Stack.Screen
+          name="AddChat"
+          component={AddChatScreen}
+          options={{ title: "Begin new chat" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
