@@ -3,7 +3,7 @@ import React, { useLayoutEffect } from 'react'
 import { Button, Input } from '@rneui/base'
 
 
-const AddChatScreen = () => {
+const AddChatScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
 
