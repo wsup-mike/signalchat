@@ -38,6 +38,20 @@ const HomeScreen = () => {
           </View>
         )
       },
+      headerRight: () => { // We pass a COMPONENT here!
+        return (
+          <View style={{ marginLeft: 20 }}> 
+            <TouchableOpacity onPress={signOut}>
+              <Avatar 
+                rounded
+                source={{ uri: auth?.currentUser?.photoURL }} // if both user authenticated and photoURL submitted
+                // source={{ uri: 'https://picsum.photos/200/300.jpg'}}
+                size={'small'}
+              />
+            </TouchableOpacity>
+          </View>
+        )
+      },
     })
   }, [])
 
