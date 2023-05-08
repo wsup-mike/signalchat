@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import CustomListItem from '../components/CustomListItem'
-import { useNavigation } from '@react-navigation/native'
+import { StackActions, useNavigation } from '@react-navigation/native'
 import { Avatar } from '@rneui/base'
 import { auth } from '../firebase';
 
@@ -9,6 +9,14 @@ import { auth } from '../firebase';
 const HomeScreen = () => {
 
   const navigation = useNavigation();
+
+  const signOut = () => {
+    auth.signOut().then(() => {
+      navigation.dispatch(
+        StackActions.replace('Login')
+      )
+    })
+  }
 
   useLayoutEffect(() => {
     navigation.setOptions({
