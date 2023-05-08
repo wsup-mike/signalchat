@@ -16,7 +16,7 @@ const HomeScreen = () => {
       headerTitleStyle: { color: "black"}, // make title color black
       headerTintColor: "black", //make any image logos here black
       headerLeft: () => { // We pass a COMPONENT here!
-        <View> 
+        <View style={{ marginLeft: 20 }}> 
           <Avatar 
             rounded
             source={ 
@@ -26,7 +26,7 @@ const HomeScreen = () => {
 
           />
         </View>
-      }
+      },
     })
   }, [])
 
