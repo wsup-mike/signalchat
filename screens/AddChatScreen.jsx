@@ -6,8 +6,11 @@ import { Button, Input } from '@rneui/base'
 const AddChatScreen = ({ navigation }) => {
 
   useLayoutEffect(() => {
+    navigation.setOptions({
+      title: 'Add a new Chat',
 
-  }, [])
+    })
+  }, [navigation])
 
   return (
     <View style={styles.container}>
