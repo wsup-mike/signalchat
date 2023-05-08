@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useLayoutEffect } from 'react'
+import { goBack } from '@react-navigation/native'
 import { Button, Input } from '@rneui/base'
 
 
@@ -18,9 +19,8 @@ const AddChatScreen = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Add a new Chat',
-      
-      
-    })
+      headerLeft: () => <BackButton onPress={() => navigation.goBack()} />,
+    });
   }, [navigation])
 
   return (
