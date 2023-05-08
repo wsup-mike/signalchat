@@ -5,10 +5,12 @@ import { StackActions, useNavigation } from '@react-navigation/native'
 import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { auth } from '../firebase';
+import { useState } from 'react';
 
 
 const HomeScreen = () => {
-
+  const [chats, setChats] = useState([]); // an empty array
+  
   const navigation = useNavigation();
 
   const signOut = () => {
