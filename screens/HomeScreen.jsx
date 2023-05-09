@@ -31,9 +31,19 @@ const HomeScreen = () => {
   // }, [])
 
   useEffect(() => {
-    console.log(db)
-    
+    const unsubscribe = collection(db, 'chats').onSnapshot(
+     (snapshot) => {
+      setChats(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    }
+    )
+    })
+  
+    return () => unsubscribe()
   }, [])
+  
   
 
   // We have a Firestore db named 'chats' which is saved as an 'array'
