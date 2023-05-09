@@ -6,7 +6,7 @@ import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { auth } from '../firebase';
 import { db } from '../firebase'
-import { addDoc, collection, doc, onSnapshot} from 'firebase/firestore'
+import { collection, doc, onSnapshot} from 'firebase/firestore'
 
 const HomeScreen = () => {
   const [chats, setChats] = useState([]); // an empty array
