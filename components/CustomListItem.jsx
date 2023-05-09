@@ -4,7 +4,7 @@ import { ListItem, Avatar } from '@rneui/base'
 
 const CustomListItem = ({ id, chatName, enterChat }) => {
   return (
-    <ListItem key={id}>
+    <ListItem key={id} bottomDivider>
         <Avatar 
             rounded
             source={
