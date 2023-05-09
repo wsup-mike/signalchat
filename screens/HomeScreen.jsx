@@ -95,7 +95,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView style={styles.container}>
         {chats.map(({ id, data: { chatName }}) => (
           <CustomListItem 
             key={id}
@@ -111,5 +111,7 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-   
+   container: {
+    height: "100%",
+   }
 });
