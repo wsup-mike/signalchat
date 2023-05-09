@@ -5,7 +5,7 @@ import { StackActions, useNavigation } from '@react-navigation/native'
 import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { auth, db } from '../firebase';
-import { collection, doc, onSnapshot} from 'firebase/firestore'
+import { onSnapshot, collection, doc } from 'firebase/firestore'
 
 const HomeScreen = () => {
   const [chats, setChats] = useState([]); // an empty array
@@ -31,15 +31,14 @@ const HomeScreen = () => {
   // }, [])
 
   useEffect(() => {
-    const unsubscribe = collection(db, 'chats').onSnapshot(
-     (snapshot) => {
+    const unsubscribe = onSnapshot(collection(db, 'chats'), snapshot => {
       setChats(snapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
       })))
-      }
-    )
-    }, [])
+    })
+    return unsubscribe; 
+  }, []);
 
   
   
