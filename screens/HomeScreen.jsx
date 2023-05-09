@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import CustomListItem from '../components/CustomListItem'
 import { StackActions, useNavigation } from '@react-navigation/native'
@@ -110,3 +110,6 @@ const HomeScreen = () => {
 
 export default HomeScreen
 
+const styles = StyleSheet.create({
+   
+});
