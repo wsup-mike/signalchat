@@ -54,6 +54,11 @@ export default function App() {
           component={AddChatScreen}
           options={{ title: "Begin new chat" }}
         />
+        <Stack.Screen
+          name="Chat"
+          component={ChatScreen}
+          options={{ title: "Selected Chat" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
