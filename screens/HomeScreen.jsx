@@ -4,8 +4,7 @@ import CustomListItem from '../components/CustomListItem'
 import { StackActions, useNavigation } from '@react-navigation/native'
 import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
-import { auth } from '../firebase';
-import { db } from '../firebase'
+import { auth, db } from '../firebase';
 import { collection, doc, onSnapshot} from 'firebase/firestore'
 
 const HomeScreen = () => {
@@ -31,14 +30,11 @@ const HomeScreen = () => {
   //   return unsubscribe; // removing an event listener prevents 'memory leaks'
   // }, [])
 
-  useEffect(() => {
-    const unsubscribe = () => {
-      const jsonVersionDb = db.toJSON()
-      console.log(jsonVersionDb)
-    }
+  // useEffect(() => {
+  //   const dbObject = db.toJSON()
+  //   console.log(dbObject)
 
-    return unsubscribe;
-  }, []);
+  // }, []);
 
   // We have a Firestore db named 'chats' which is saved as an 'array'
   //This useEffect sets up a 'listener' on our 'chats' array
