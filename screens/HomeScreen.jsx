@@ -108,7 +108,7 @@ const HomeScreen = () => {
             key={id}
             id={id}
             chatName={chatName}
-            
+            enterChat={enterChat}
           />
         ))}
       </ScrollView>
