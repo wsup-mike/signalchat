@@ -20,15 +20,6 @@ const HomeScreen = () => {
     })
   }
 
-  // useEffect(() => { 
-  //   const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
-  //     setChats(snapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       data: doc.data()
-  //     })))
-  //   })
-  //   return unsubscribe; // removing an event listener prevents 'memory leaks'
-  // }, [])
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'chats'), snapshot => {
@@ -39,9 +30,6 @@ const HomeScreen = () => {
     })
     return unsubscribe; 
   }, []);
-
-  
-  
 
   // We have a Firestore db named 'chats' which is saved as an 'array'
   //This useEffect sets up a 'listener' on our 'chats' array
