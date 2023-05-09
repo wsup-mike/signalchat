@@ -6,7 +6,7 @@ import { Avatar } from '@rneui/base'
 import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { auth } from '../firebase';
 import { db } from '../firebase'
-import { addDoc, collection, doc} from 'firebase/firestore'
+import { addDoc, collection, doc, onSnapshot} from 'firebase/firestore'
 
 const HomeScreen = () => {
   const [chats, setChats] = useState([]); // an empty array
@@ -28,7 +28,6 @@ const HomeScreen = () => {
         data: doc.data()
       })))
     })
-
     return unsubscribe;
   }, [])
 
@@ -94,7 +93,6 @@ const HomeScreen = () => {
             chatName={chatName}
           />
         ))}
-        
       </ScrollView>
     </SafeAreaView>
   )
