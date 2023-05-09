@@ -21,15 +21,24 @@ const HomeScreen = () => {
     })
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
       setChats(snapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
       })))
     })
-    return unsubscribe;
+    return unsubscribe; // removing an event listener prevents 'memory leaks'
   }, [])
+  // We have a Firestore db named 'chats' which is saved as an 'array'
+  //This useEffect sets up a 'listener' on our 'chats' array
+  // A 'listener' in essence makes a 'query' and an 'object' is returned
+  // .onSnapshot is the listener: when changes are detected on 'chats', this retrieves and returns a 'snapshot' of the array
+  // Then the 'snapshot' of the updated data is taken and set to the new state of 'chats', using setChats
+  // The following is saved to 'chats': It's gonna be a newly created 'array' | the 'docs' is a newly converted plain javascript array version of the 'snapshot' (so we can extract the properties of each doc: 'id' and 'data') | each element in 'docs' snapshot is mapped over 1 'doc' element at a time | Each 'docs' element in snapshot.docs array becomes a new element in our 'chats' state array | each new element will have a key value pair of: id-doc.id and data-doc.data() | doc.data() is a method to retrieve all fields n values stored in a document in the form of an object
+  // Now the updated data in 'snapshot' becomes the new state of 'chats'
+  // Ultimately, every time this screen 'mounts' it will run the useEffect to check if any data in the database changed and to dynmically make updaes to the 'chats' state
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
