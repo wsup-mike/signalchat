@@ -20,15 +20,16 @@ const HomeScreen = () => {
     })
   }
 
-  // useEffect(() => { 
-  //   const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
-  //     setChats(snapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       data: doc.data()
-  //     })))
-  //   })
-  //   return unsubscribe; // removing an event listener prevents 'memory leaks'
-  // }, [])
+  useEffect(() => { 
+    const unsubscribe = db.collection('chats').onSnapshot(snapshot => {
+      setChats(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+    console.log("unsubscribe is:", unsubscribe); // add this line
+    return unsubscribe; // removing an event listener prevents 'memory leaks'
+  }, [])
 
   // useEffect(() => {
   //   const dbObject = db.toJSON()
