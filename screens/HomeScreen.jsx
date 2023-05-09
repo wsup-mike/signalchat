@@ -32,7 +32,12 @@ const HomeScreen = () => {
   // }, [])
 
   useEffect(() => {
-    db.collection('chats').onSnapshot(console.log(snapshot))
+    const unsubscribe = () => {
+      const jsonVersionDb = db.toJSON()
+      console.log(jsonVersionDb)
+    }
+
+    return unsubscribe;
   }, []);
 
   // We have a Firestore db named 'chats' which is saved as an 'array'
