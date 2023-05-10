@@ -7,8 +7,7 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db } from '../firebase'
-import { collection, doc,  } from 'firebase/firestore';
-
+import { Firestore, collection, doc } from 'firebase/firestore';
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
@@ -61,6 +60,16 @@ const ChatScreen = ({ navigation, route }) => {
 
     const sendMessage = () => {
         Keyboard.dismiss();
+
+        db.collection('chats').doc(route.params.id).collection('messages').add({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            message: textInput,
+            displayName: auth.currentUser.displayName,
+            email: auth.currentUser.email,
+            photoURL: auth.currentUser.photoURL,
+        })
+
+        setTextInput('');
     }
 
     return (
