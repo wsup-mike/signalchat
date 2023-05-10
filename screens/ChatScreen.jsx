@@ -7,9 +7,9 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-import { collection } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import firebase from 'firebase/app'
-// import 'firebase/firestore'
+
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
@@ -60,54 +60,38 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
-    useEffect(() => {
-        console.dir(db)
-    }, [])
 
-    // useEffect(() => {
-    //     if (db && typeof db.collection === 'function') {
-    //         console.log('db.collection() is available.');
-    //     } else {
-    //         console.log('db.collection() is not available.');
-    //     }
-    // }, [db]);
-    
-
-    const sendMessage = () => {
+    const sendMessage = async () => { // Using addDoc method
         Keyboard.dismiss();
 
-        db.collection('chats').doc(route.params.id).collection('messages').add({
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        const messagesRef = collection(db, 'chats', route.params.id, 'messages');
+
+        await addDoc(messagesRef, {
             message: textInput,
             displayName: auth.currentUser.displayName,
             email: auth.currentUser.email,
             photoURL: auth.currentUser.photoURL,
+            timestamp: serverTimestamp(),
         })
 
         setTextInput('');
     }
 
-    // const sendMessage = async () => {
+    
+
+    // const sendMessage = () => {
     //     Keyboard.dismiss();
-    
-    //     if (!textInput.trim()) {
-    //       return;
-    //     }
-    
-    //     try {
-    //         await db.collection('chats').doc(route.params.id).collection('messages').add({
-    //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    //             message: textInput.trim(),
-    //             displayName: auth.currentUser.displayName,
-    //             email: auth.currentUser.email,
-    //             photoURL: auth.currentUser.photoURL,
-    //         });
-    //         setTextInput('');
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
-    
+
+    //     db.collection('chats').doc(route.params.id).collection('messages').add({
+    //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //         message: textInput,
+    //         displayName: auth.currentUser.displayName,
+    //         email: auth.currentUser.email,
+    //         photoURL: auth.currentUser.photoURL,
+    //     })
+
+    //     setTextInput('');
+    // }
 
     return (
         <SafeAreaView style={{
