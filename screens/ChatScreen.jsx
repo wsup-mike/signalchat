@@ -115,12 +115,9 @@ const styles = StyleSheet.create({
         height: 40,
         flex: 1,
         marginRight: 15,
-        borderColor: 'transparent',
         backgroundColor: '#ececec',
-        borderWidth: 1,
         padding: 10,
         color: 'grey',
         borderRadius: 30,
-
     }
 });
