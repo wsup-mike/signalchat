@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
+import { Avatar } from '@rneui/base';
 
 const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
