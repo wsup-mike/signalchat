@@ -61,6 +61,7 @@ const ChatScreen = ({ navigation, route }) => {
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.container}
+                keyboardVerticalOffset={90}
             >
 
             </KeyboardAvoidingView>
