@@ -128,12 +128,12 @@ const ChatScreen = ({ navigation, route }) => {
                             data.email === auth.currentUser.email ? (
                                 <View>
                                     <Avatar />
-                                    <Text></Text>
+                                    <Text style={styles.receiver}></Text>
                                 </View>
                             ) : (
                                 <View>
                                     <Avatar />
-                                    <Text></Text>
+                                    <Text style={styles.receiver}></Text>
                                 </View>
                             )
                         ))} 
