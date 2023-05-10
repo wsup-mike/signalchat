@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
+
 
 const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
@@ -63,7 +64,11 @@ const ChatScreen = ({ navigation, route }) => {
                 style={styles.container}
                 keyboardVerticalOffset={90}
             >
-
+                <> 
+                    <ScrollView>
+                        {/* Chat goes here */}
+                    </ScrollView>
+                </>
             </KeyboardAvoidingView>
         </SafeAreaView>
     )
