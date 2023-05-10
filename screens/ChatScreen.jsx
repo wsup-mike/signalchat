@@ -6,7 +6,9 @@ const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             title: 'Chat',
-            headerBackTitleVisible: false,
+            headerBackTitleVisible: false, //ios only
+            headerTitleAlign: 'left',
+            
         })
     }, [navigation])
 
