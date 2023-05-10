@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
+import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 
 const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
@@ -24,7 +25,7 @@ const ChatScreen = ({ navigation, route }) => {
                 </View>
             ),
             headerLeft: () => (
-                
+           
             ),
         })
     }, [navigation])
