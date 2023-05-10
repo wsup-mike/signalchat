@@ -6,9 +6,10 @@ import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
-import { db } from '../firebase'
+import { db, auth } from '../firebase'
 import { firestore, collection, doc } from 'firebase/firestore';
-import { firebase } from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
@@ -95,6 +96,7 @@ const ChatScreen = ({ navigation, route }) => {
                             value={textInput}
                             onChangeText={text => setTextInput(text)}
                             style={styles.textInput}
+                            onSubmitEditing={sendMessage}
                         />
                         <TouchableOpacity onPress={sendMessage}>
                             <Ionicons 
