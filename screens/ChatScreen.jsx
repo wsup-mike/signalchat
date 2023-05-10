@@ -52,7 +52,10 @@ const ChatScreen = ({ navigation, route }) => {
     }, [navigation])
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{
+            flex: 1,
+            backgroundColor: 'white',
+        }}>
             <Text>{route.params.chatName}</Text>
         </SafeAreaView>
     )
