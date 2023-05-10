@@ -80,7 +80,7 @@ const ChatScreen = ({ navigation, route }) => {
         setTextInput('');
     }
 
-    useLayoutEffect(() => { // To set up a 'listener'
+    useLayoutEffect(() => { // To set up a 'listener'. 'messages' will now be updated with ordered list of messages!
         const unsubscribe = () => {
           const messagesRef = collection(db, 'chats', route.params.id, 'messages');
           const query = query(messagesRef, orderBy('timestamp', 'desc'));
@@ -121,7 +121,22 @@ const ChatScreen = ({ navigation, route }) => {
             >
                 <> 
                     <ScrollView>
-                        {/* Chat goes here */}
+                        {/* Chat goes here. */}
+                        {/* We destructure the 'message' to get id, data */}
+                        {/* At first the useLayoutEffect added some state to messages: a copy of the 'messages' collection. Here we will map thropugh the entire 'messages' collection. For each single message, selecting by 'id' and 'data', we will identify if this particular message's user 'email' matches the currentUser's 'email'! If so then we will display the appropriate logged in user's Avatar and their specific 'message' text. If the message's 'email' doestn match, then we will use the user's Avatar and 'message' instead */}
+                        {messages.map(({ id, data }) => (
+                            data.email === auth.currentUser.email ? (
+                                <View>
+                                    <Avatar />
+                                    <Text></Text>
+                                </View>
+                            ) : (
+                                <View>
+                                    <Avatar />
+                                    <Text></Text>
+                                </View>
+                            )
+                        ))} 
 
                     </ScrollView>
                     <View style={styles.footer}>
