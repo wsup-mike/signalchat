@@ -60,9 +60,9 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
-    // useEffect(() => {
-    //     console.log(auth)
-    // }, [])
+    useEffect(() => {
+        console.log(db)
+    }, [])
 
     // useEffect(() => {
     //     if (db && typeof db.collection === 'function') {
@@ -88,26 +88,26 @@ const ChatScreen = ({ navigation, route }) => {
     //     setTextInput('');
     // }
 
-    const sendMessage = async () => {
-        Keyboard.dismiss();
+    // const sendMessage = async () => {
+    //     Keyboard.dismiss();
     
-        if (!textInput.trim()) {
-          return;
-        }
+    //     if (!textInput.trim()) {
+    //       return;
+    //     }
     
-        try {
-            await db.collection('chats').doc(route.params.id).collection('messages').add({
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                message: textInput.trim(),
-                displayName: auth.currentUser.displayName,
-                email: auth.currentUser.email,
-                photoURL: auth.currentUser.photoURL,
-            });
-            setTextInput('');
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    //     try {
+    //         await db.collection('chats').doc(route.params.id).collection('messages').add({
+    //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //             message: textInput.trim(),
+    //             displayName: auth.currentUser.displayName,
+    //             email: auth.currentUser.email,
+    //             photoURL: auth.currentUser.photoURL,
+    //         });
+    //         setTextInput('');
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // };
     
 
     return (
