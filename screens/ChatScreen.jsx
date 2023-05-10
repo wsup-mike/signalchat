@@ -52,9 +52,9 @@ const ChatScreen = ({ navigation, route }) => {
     }, [navigation])
 
     return (
-        <View>
+        <SafeAreaView>
             <Text>{route.params.chatName}</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
