@@ -75,7 +75,7 @@ const ChatScreen = ({ navigation, route }) => {
                         <TextInput 
                             placeholder='Enter your message'
                             value={textInput}
-                            
+                            onChangeText={text => setTextInput(text)}
                         />
                     </View>
                 </>
