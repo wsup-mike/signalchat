@@ -63,23 +63,23 @@ const ChatScreen = ({ navigation, route }) => {
 
     const sendMessage = async () => { // Using addDoc method
         Keyboard.dismiss();
-
+        
+        // To refer to the 'messages' collection/section of our Firestore database
         const messagesRef = collection(db, 'chats', route.params.id, 'messages');
 
+        //To add the data object specifically to the 'messages' section (as referenced by 'mesagesRef')
         await addDoc(messagesRef, {
             message: textInput,
             displayName: auth.currentUser.displayName,
             email: auth.currentUser.email,
             photoURL: auth.currentUser.photoURL,
-            timestamp: serverTimestamp(),
+            timestamp: serverTimestamp(), //Firestore has a new direct method to get this timestamp info!
         })
 
         setTextInput('');
     }
 
-    
-
-    // const sendMessage = () => {
+    // const sendMessage = () => { // db.collection not an accessible method! Not sure why
     //     Keyboard.dismiss();
 
     //     db.collection('chats').doc(route.params.id).collection('messages').add({
