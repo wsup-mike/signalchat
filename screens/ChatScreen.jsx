@@ -7,7 +7,7 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-import { collection, addDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, orderBy, query, onSnapshot } from 'firebase/firestore';
 import firebase from 'firebase/app'
 
 
@@ -188,7 +188,14 @@ const styles = StyleSheet.create({
     },
 
     receiver: {
-
+        padding: 15,
+        backgroundColor: '#ececec',
+        alignSelf: 'flex-end',
+        borderRadius: 20,
+        marginRight: 15,
+        marginBottom: 20,
+        maxWidth: '80%',
+        position: 'relative',
     },
 
     receiverText: {
