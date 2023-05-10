@@ -67,6 +67,8 @@ const ChatScreen = ({ navigation, route }) => {
         // To refer to the 'messages' collection/section of our Firestore database
         const messagesRef = collection(db, 'chats', route.params.id, 'messages');
 
+        
+
         //To add the data object specifically to the 'messages' section (as referenced by 'mesagesRef')
         await addDoc(messagesRef, {
             message: textInput,
@@ -78,6 +80,20 @@ const ChatScreen = ({ navigation, route }) => {
 
         setTextInput('');
     }
+
+    useLayoutEffect(() => { // To set up a 'listener'
+        const unsubscribe = () => {
+          const messagesRef = collection(db, 'chats', route.params.id, 'messages');
+          const query = query(messagesRef, orderBy('timestamp', 'desc'));
+          const listener = onSnapshot(query, (snapshot) => {
+            setMessages(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })));
+          });
+          return listener;
+        };
+      
+        return unsubscribe();
+      }, [route]);  // dependent on the 'route'
+      
 
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
     //     Keyboard.dismiss();
