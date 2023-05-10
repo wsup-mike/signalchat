@@ -9,7 +9,15 @@ const ChatScreen = ({ navigation, route }) => {
             title: 'Chat',
             headerBackTitleVisible: false, //ios only
             headerTitleAlign: 'left',
-            
+            headerTitle: () => (
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                }}>
+                    <Avatar rounded  />
+                    <Text>{route.params.chatName}</Text>
+                </View>
+            )
         })
     }, [navigation])
 
