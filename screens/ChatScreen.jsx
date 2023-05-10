@@ -60,7 +60,7 @@ const ChatScreen = ({ navigation, route }) => {
             <StatusBar style='light'/>
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={}
+                style={styles.container}
             >
 
             </KeyboardAvoidingView>
@@ -72,6 +72,6 @@ export default ChatScreen
 
 const styles = StyleSheet.create({
     container: {
-        
+
     }
 });
