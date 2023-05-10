@@ -7,7 +7,8 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db } from '../firebase'
-import { Firestore, collection, doc } from 'firebase/firestore';
+import { firestore, collection, doc } from 'firebase/firestore';
+import { firebase } from 'firebase'
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
