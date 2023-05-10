@@ -185,5 +185,9 @@ const styles = StyleSheet.create({
         padding: 10,
         color: 'grey',
         borderRadius: 30,
-    }
+    },
+
+    receiver: {
+
+    },
 });
