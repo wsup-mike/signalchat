@@ -190,4 +190,8 @@ const styles = StyleSheet.create({
     receiver: {
 
     },
+
+    sender: {
+
+    },
 });
