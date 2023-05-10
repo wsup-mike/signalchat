@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
@@ -58,7 +58,9 @@ const ChatScreen = ({ navigation, route }) => {
             backgroundColor: 'white',
         }}>
             <StatusBar style='light'/>
-            <KeyboardAvoidingView>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            >
 
             </KeyboardAvoidingView>
         </SafeAreaView>
