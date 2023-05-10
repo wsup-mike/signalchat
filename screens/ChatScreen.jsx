@@ -1,9 +1,13 @@
-import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput } from 'react-native'
+import { 
+    View, 
+    Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput, Keyboard } from 'react-native'
 import React, { useState } from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
+import { db } from '../firebase'
+import { collection, doc,  } from 'firebase/firestore';
 
 
 const ChatScreen = ({ navigation, route }) => {
@@ -56,7 +60,7 @@ const ChatScreen = ({ navigation, route }) => {
     }, [navigation])
 
     const sendMessage = () => {
-
+        Keyboard.dismiss();
     }
 
     return (
