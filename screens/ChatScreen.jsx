@@ -4,8 +4,11 @@ import { useLayoutEffect } from 'react';
 
 const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
-        
-    }, [])
+        navigation.setOptions({
+            title: 'Chat',
+            headerBackTitleVisible: false,
+        })
+    }, [navigation])
 
     return (
         <View>
