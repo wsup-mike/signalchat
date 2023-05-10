@@ -13,6 +13,7 @@ import firebase from 'firebase/app'
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
+    const [messages, setMessages] = useState([]);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -66,8 +67,6 @@ const ChatScreen = ({ navigation, route }) => {
         
         // To refer to the 'messages' collection/section of our Firestore database
         const messagesRef = collection(db, 'chats', route.params.id, 'messages');
-
-        
 
         //To add the data object specifically to the 'messages' section (as referenced by 'mesagesRef')
         await addDoc(messagesRef, {
@@ -123,6 +122,7 @@ const ChatScreen = ({ navigation, route }) => {
                 <> 
                     <ScrollView>
                         {/* Chat goes here */}
+
                     </ScrollView>
                     <View style={styles.footer}>
                         {/* Keyboard input text box */}
