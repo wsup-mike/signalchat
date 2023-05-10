@@ -61,7 +61,7 @@ const ChatScreen = ({ navigation, route }) => {
     }, [navigation])
 
     useEffect(() => {
-        console.log(db)
+        console.log(auth)
     }, [])
 
     const sendMessage = () => {
