@@ -7,7 +7,7 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
 import firebase from 'firebase/app'
 
 
