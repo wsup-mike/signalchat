@@ -1,13 +1,13 @@
 import { 
     View, 
     Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput, Keyboard } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-// import { firestore, collection, doc } from 'firebase/firestore';
+import { firestore, collection, doc } from 'firebase/firestore';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -60,12 +60,16 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
+    useEffect(() => {
+        console.log(db)
+    }, [])
+
     const sendMessage = () => {
         Keyboard.dismiss();
 
         db.collection('chats').doc(route.params.id).collection('messages').add({
             // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            timestamp: 
+            
             message: textInput,
             displayName: auth.currentUser.displayName,
             email: auth.currentUser.email,
