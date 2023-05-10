@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 
 
 const ChatScreen = ({ navigation, route }) => {
-    
+    const [textInput, setTextInput] = useState('');   
 
     useLayoutEffect(() => {
         navigation.setOptions({
