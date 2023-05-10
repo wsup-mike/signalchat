@@ -55,6 +55,10 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
+    const sendMessage = () => {
+        
+    }
+
     return (
         <SafeAreaView style={{
             flex: 1,
