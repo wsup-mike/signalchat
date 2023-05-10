@@ -126,14 +126,14 @@ const ChatScreen = ({ navigation, route }) => {
                         {/* At first the useLayoutEffect added some state to messages: a copy of the 'messages' collection. Here we will map thropugh the entire 'messages' collection. For each single message, selecting by 'id' and 'data', we will identify if this particular message's user 'email' matches the currentUser's 'email'! If so then we will display the appropriate logged in user's Avatar and their specific 'message' text. If the message's 'email' doestn match, then we will use the user's Avatar and 'message' instead */}
                         {messages.map(({ id, data }) => (
                             data.email === auth.currentUser.email ? (
-                                <View>
+                                <View key={id} style={styles.receiver}> {/* Need to have key always here for proper rendering*/}
                                     <Avatar />
-                                    <Text style={styles.receiver}>{data.message}</Text>
+                                    <Text style={styles.receiverText}>{data.message}</Text>
                                 </View>
                             ) : (
-                                <View>
+                                <View style={styles.sender}>
                                     <Avatar />
-                                    <Text style={styles.receiver}>{data.message}</Text>
+                                    <Text style={styles.senderText}>{data.message}</Text>
                                 </View>
                             )
                         ))} 
@@ -191,7 +191,14 @@ const styles = StyleSheet.create({
 
     },
 
+    receiverText: {
+
+    },
+
     sender: {
+
+    },
+    senderText: {
 
     },
 });
