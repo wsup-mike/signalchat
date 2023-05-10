@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
@@ -22,7 +22,10 @@ const ChatScreen = ({ navigation, route }) => {
                     /> 
                     <Text style={{ color: 'white', marginLeft: 10, fontWeight: '700'}}>{route.params.chatName}</Text>
                 </View>
-            )
+            ),
+            headerLeft: () => (
+                
+            ),
         })
     }, [navigation])
 
