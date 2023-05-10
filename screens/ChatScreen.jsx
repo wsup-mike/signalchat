@@ -60,9 +60,18 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
+    // useEffect(() => {
+    //     console.log(auth)
+    // }, [])
+
     useEffect(() => {
-        console.log(auth)
-    }, [])
+        if (db && typeof db.collection === 'function') {
+            console.log('db.collection() is available.');
+        } else {
+            console.log('db.collection() is not available.');
+        }
+    }, [db]);
+    
 
     const sendMessage = () => {
         Keyboard.dismiss();
