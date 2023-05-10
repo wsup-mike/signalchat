@@ -68,6 +68,9 @@ const ChatScreen = ({ navigation, route }) => {
                     <ScrollView>
                         {/* Chat goes here */}
                     </ScrollView>
+                    <View style={styles.footer}>
+
+                    </View>
                 </>
             </KeyboardAvoidingView>
         </SafeAreaView>
@@ -79,5 +82,8 @@ export default ChatScreen
 const styles = StyleSheet.create({
     container: {
 
-    }
+    },
+    footer: {
+
+    },
 });
