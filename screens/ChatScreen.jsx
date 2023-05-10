@@ -203,7 +203,13 @@ const styles = StyleSheet.create({
     },
 
     sender: {
-
+        padding: 15,
+        backgroundColor: '#2b68e6',
+        alignSelf: 'flex-start',
+        borderRadius: 20,
+        margin: 15,
+        maxWidth: '80%',
+        position: 'relative',
     },
     senderText: {
 
