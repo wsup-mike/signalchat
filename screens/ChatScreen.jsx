@@ -9,7 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
 import { collection } from 'firebase/firestore';
 import firebase from 'firebase/app'
-import 'firebase/firestore'
+// import 'firebase/firestore'
 
 const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
