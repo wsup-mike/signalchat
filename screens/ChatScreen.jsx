@@ -3,6 +3,7 @@ import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
+import { StatusBar } from 'expo-status-bar';
 
 const ChatScreen = ({ navigation, route }) => {
     useLayoutEffect(() => {
@@ -56,6 +57,7 @@ const ChatScreen = ({ navigation, route }) => {
             flex: 1,
             backgroundColor: 'white',
         }}>
+            <StatusBar style='light'/>
             <Text>{route.params.chatName}</Text>
         </SafeAreaView>
     )
