@@ -77,6 +77,9 @@ const ChatScreen = ({ navigation, route }) => {
                             value={textInput}
                             onChangeText={text => setTextInput(text)}
                         />
+                        <TouchableOpacity onPress={sendMessage}>
+
+                        </TouchableOpacity>
                     </View>
                 </>
             </KeyboardAvoidingView>
