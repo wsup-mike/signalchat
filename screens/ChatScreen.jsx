@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
@@ -69,7 +69,7 @@ const ChatScreen = ({ navigation, route }) => {
                         {/* Chat goes here */}
                     </ScrollView>
                     <View style={styles.footer}>
-
+                        <TextInput placeholder='Enter your message'/>
                     </View>
                 </>
             </KeyboardAvoidingView>
