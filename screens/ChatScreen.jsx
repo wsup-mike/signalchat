@@ -72,7 +72,11 @@ const ChatScreen = ({ navigation, route }) => {
                     </ScrollView>
                     <View style={styles.footer}>
                         {/* Keyboard input text box */}
-                        <TextInput placeholder='Enter your message'/>
+                        <TextInput 
+                            placeholder='Enter your message'
+                            value={textInput}
+                            
+                        />
                     </View>
                 </>
             </KeyboardAvoidingView>
