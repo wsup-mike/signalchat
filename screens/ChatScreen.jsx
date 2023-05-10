@@ -14,8 +14,13 @@ const ChatScreen = ({ navigation, route }) => {
                     flexDirection: 'row',
                     alignItems: 'center',
                 }}>
-                    <Avatar rounded  />
-                    <Text>{route.params.chatName}</Text>
+                    <Avatar 
+                        rounded  
+                        source={{
+                            uri: 'https://picsum.photos/200/300.jpg'
+                        }}
+                    /> 
+                    <Text style={{ color: 'white', marginLeft: 10, fontWeight: '700'}}>{route.params.chatName}</Text>
                 </View>
             )
         })
