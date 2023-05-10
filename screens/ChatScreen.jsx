@@ -64,29 +64,51 @@ const ChatScreen = ({ navigation, route }) => {
     //     console.log(auth)
     // }, [])
 
-    useEffect(() => {
-        if (db && typeof db.collection === 'function') {
-            console.log('db.collection() is available.');
-        } else {
-            console.log('db.collection() is not available.');
-        }
-    }, [db]);
+    // useEffect(() => {
+    //     if (db && typeof db.collection === 'function') {
+    //         console.log('db.collection() is available.');
+    //     } else {
+    //         console.log('db.collection() is not available.');
+    //     }
+    // }, [db]);
     
 
-    const sendMessage = () => {
-        Keyboard.dismiss();
+    // const sendMessage = () => {
+    //     Keyboard.dismiss();
 
-        db.collection('chats').doc(route.params.id).collection('messages').add({
-            // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //     db.collection('chats').doc(route.params.id).collection('messages').add({
+    //         // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             
-            message: textInput,
-            displayName: auth.currentUser.displayName,
-            email: auth.currentUser.email,
-            photoURL: auth.currentUser.photoURL,
-        })
+    //         message: textInput,
+    //         displayName: auth.currentUser.displayName,
+    //         email: auth.currentUser.email,
+    //         photoURL: auth.currentUser.photoURL,
+    //     })
 
-        setTextInput('');
-    }
+    //     setTextInput('');
+    // }
+
+    const sendMessage = async () => {
+        Keyboard.dismiss();
+    
+        if (!textInput.trim()) {
+          return;
+        }
+    
+        try {
+            await db.collection('chats').doc(route.params.id).collection('messages').add({
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                message: textInput.trim(),
+                displayName: auth.currentUser.displayName,
+                email: auth.currentUser.email,
+                photoURL: auth.currentUser.photoURL,
+            });
+            setTextInput('');
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    
 
     return (
         <SafeAreaView style={{
