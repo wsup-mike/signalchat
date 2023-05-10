@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
@@ -53,7 +53,7 @@ const ChatScreen = ({ navigation, route }) => {
 
     return (
         <View>
-        <Text>{route.params.chatName}</Text>
+            <Text>{route.params.chatName}</Text>
         </View>
     )
 }
