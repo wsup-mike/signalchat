@@ -69,6 +69,7 @@ const ChatScreen = ({ navigation, route }) => {
                         {/* Chat goes here */}
                     </ScrollView>
                     <View style={styles.footer}>
+                        {/* Keyboard input text box */}
                         <TextInput placeholder='Enter your message'/>
                     </View>
                 </>
@@ -86,4 +87,7 @@ const styles = StyleSheet.create({
     footer: {
 
     },
+    textInput: {
+        
+    }
 });
