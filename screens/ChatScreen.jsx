@@ -8,6 +8,7 @@ import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
 import { collection, addDoc, serverTimestamp, orderBy, onSnapshot, doc } from 'firebase/firestore';
+import { query } from 'firebase/firestore';
 
 
 
@@ -80,23 +81,11 @@ const ChatScreen = ({ navigation, route }) => {
         setTextInput('');
     }
 
-    // useLayoutEffect(() => { // To set up a 'listener'. 'messages' will now be updated with ordered list of messages!
-    //     const unsubscribe = () => {
-    //       const messagesRef = collection(db, 'chats', route.params.id, 'messages');
-    //       const query = query(messagesRef, orderBy('timestamp', 'desc'));
-    //       const listener = onSnapshot(query, (snapshot) => {
-    //         setMessages(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })));
-    //       });
-    //       return listener;
-    //     };
-      
-    //     return unsubscribe();
-    //   }, [route]);  // dependent on the 'route'
-      useLayoutEffect(() => {
+    useLayoutEffect(() => {
         const unsubscribe = () => {
             const messagesLocation = collection(db, 'chats', route.params.id, 'messages')
-            const query = query(messagesLocation, orderBy('timestamp', 'desc'));
-            const listener = onSnapshot(query, (snapshot) => {
+            const returnedMessage = query(messagesLocation, orderBy('timestamp', 'desc'));
+            const listener = onSnapshot(returnedMessage, (snapshot) => {
                 setMessages(snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data()
@@ -104,9 +93,9 @@ const ChatScreen = ({ navigation, route }) => {
             })
             return listener;
         }
-
         return unsubscribe;
-      }, [route]);
+        console.log(messages)
+    }, [route]);
 
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
     //     Keyboard.dismiss();
