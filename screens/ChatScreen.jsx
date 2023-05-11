@@ -88,15 +88,17 @@ const ChatScreen = ({ navigation, route }) => {
             const messagesLocation = collection(db, 'chats', route.params.id, 'messages')
             const returnedMessage = query(messagesLocation, orderBy('timestamp', 'desc'));
             const listener = onSnapshot(returnedMessage, (snapshot) => {
+                console.log('Query request sent!')
                 setMessages(snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data() //Converts FDF to plain JavaScript object
                 })))
+                console.log(`'messages' state now has a new object: ${messages}`)
             })
             return listener;
         }
         return unsubscribe;
-        console.log(messages)
+        
     }, [route]);
 
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
@@ -112,6 +114,8 @@ const ChatScreen = ({ navigation, route }) => {
 
     //     setTextInput('');
     // }
+
+    console.log(messages)
 
     return (
         <SafeAreaView style={{
@@ -137,7 +141,7 @@ const ChatScreen = ({ navigation, route }) => {
                                         <Text style={styles.receiverText}>{data.message}</Text>
                                     </View>
                                 ) : (
-                                    <View style={styles.sender}>
+                                    <View key={id} style={styles.sender}>
                                         <Avatar />
                                         <Text style={styles.senderText}>{data.message}</Text>
                                     </View>
