@@ -101,6 +101,8 @@ const ChatScreen = ({ navigation, route }) => {
         
     }, [route]);
 
+     
+
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
     //     Keyboard.dismiss();
 
@@ -115,7 +117,6 @@ const ChatScreen = ({ navigation, route }) => {
     //     setTextInput('');
     // }
 
-    console.log(messages)
 
     return (
         <SafeAreaView style={{
