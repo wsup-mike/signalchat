@@ -82,6 +82,7 @@ const ChatScreen = ({ navigation, route }) => {
         setTextInput('');  // Once addDoc creates a new state with a message object, this will clear it.
     }
 
+    // Will refresh the 'messages' state with the most current version of 'messages' by the time this screen mounts. Will create 'listener' on an ordered object 'messages' collection. On this ordered object, a listener 'listener' is applied. Here's what happens: The moment a CHANGE occurs, the 'listner' will take a 'snapshot' of the ENTIRE COLLECTION (New edits incl!). Then listner will set new state using setMessages using the entire 'snapshot'. It will re-create a new array from mapping over the elements (docs) in the snapshot, grabbing each doc.id and doc.data and this final array will be set to new state 'messages'.  Done, now the listner is removed, then unsubscribe is removed
     useLayoutEffect(() => {
         const unsubscribe = () => {
             const messagesLocation = collection(db, 'chats', route.params.id, 'messages')
