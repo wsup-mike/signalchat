@@ -7,7 +7,7 @@ import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-import { collection, addDoc, serverTimestamp, orderBy, query, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, orderBy, onSnapshot, query, doc } from 'firebase/firestore';
 import firebase from 'firebase/app'
 
 
@@ -80,19 +80,33 @@ const ChatScreen = ({ navigation, route }) => {
         setTextInput('');
     }
 
-    useLayoutEffect(() => { // To set up a 'listener'. 'messages' will now be updated with ordered list of messages!
+    // useLayoutEffect(() => { // To set up a 'listener'. 'messages' will now be updated with ordered list of messages!
+    //     const unsubscribe = () => {
+    //       const messagesRef = collection(db, 'chats', route.params.id, 'messages');
+    //       const query = query(messagesRef, orderBy('timestamp', 'desc'));
+    //       const listener = onSnapshot(query, (snapshot) => {
+    //         setMessages(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })));
+    //       });
+    //       return listener;
+    //     };
+      
+    //     return unsubscribe();
+    //   }, [route]);  // dependent on the 'route'
+      useLayoutEffect(() => {
         const unsubscribe = () => {
-          const messagesRef = collection(db, 'chats', route.params.id, 'messages');
-          const query = query(messagesRef, orderBy('timestamp', 'desc'));
-          const listener = onSnapshot(query, (snapshot) => {
-            setMessages(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() })));
-          });
-          return listener;
-        };
-      
-        return unsubscribe();
-      }, [route]);  // dependent on the 'route'
-      
+            const messagesLocation = collection(db, 'chats', route.params.id, 'messages')
+            const query = query(messagesLocation, orderBy('timestamp', 'desc'));
+            const listener = onSnapshot(query, (snapshot) => {
+                setMessages(snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    data: doc.data()
+                })))
+            })
+            return listener;
+        }
+
+        return unsubscribe;
+      }, [route]);
 
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
     //     Keyboard.dismiss();
