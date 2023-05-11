@@ -1,14 +1,14 @@
 import { 
     View, 
-    Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput, Keyboard } from 'react-native'
+    Text, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, StyleSheet, ScrollView, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useLayoutEffect } from 'react';
 import { Avatar } from '@rneui/base';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 import { db, auth } from '../firebase'
-import { collection, addDoc, serverTimestamp, orderBy, onSnapshot, query, doc } from 'firebase/firestore';
-import firebase from 'firebase/app'
+import { collection, addDoc, serverTimestamp, orderBy, onSnapshot, doc } from 'firebase/firestore';
+
 
 
 const ChatScreen = ({ navigation, route }) => {
@@ -133,44 +133,46 @@ const ChatScreen = ({ navigation, route }) => {
                 style={styles.container}
                 keyboardVerticalOffset={90}
             >
-                <> 
-                    <ScrollView>
-                        {/* Chat goes here. */}
-                        {/* We destructure the 'message' to get id, data */}
-                        {/* At first the useLayoutEffect added some state to messages: a copy of the 'messages' collection. Here we will map thropugh the entire 'messages' collection. For each single message, selecting by 'id' and 'data', we will identify if this particular message's user 'email' matches the currentUser's 'email'! If so then we will display the appropriate logged in user's Avatar and their specific 'message' text. If the message's 'email' doestn match, then we will use the user's Avatar and 'message' instead */}
-                        {messages.map(({ id, data }) => (
-                            data.email === auth.currentUser.email ? (
-                                <View key={id} style={styles.receiver}> {/* Need to have key always here for proper rendering*/}
-                                    <Avatar />
-                                    <Text style={styles.receiverText}>{data.message}</Text>
-                                </View>
-                            ) : (
-                                <View style={styles.sender}>
-                                    <Avatar />
-                                    <Text style={styles.senderText}>{data.message}</Text>
-                                </View>
-                            )
-                        ))} 
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <> 
+                        <ScrollView>
+                            {/* Chat goes here. */}
+                            {/* We destructure the 'message' to get id, data */}
+                            {/* At first the useLayoutEffect added some state to messages: a copy of the 'messages' collection. Here we will map thropugh the entire 'messages' collection. For each single message, selecting by 'id' and 'data', we will identify if this particular message's user 'email' matches the currentUser's 'email'! If so then we will display the appropriate logged in user's Avatar and their specific 'message' text. If the message's 'email' doestn match, then we will use the user's Avatar and 'message' instead */}
+                            {messages.map(({ id, data }) => (
+                                data.email === auth.currentUser.email ? (
+                                    <View key={id} style={styles.receiver}> {/* Need to have key always here for proper rendering*/}
+                                        <Avatar />
+                                        <Text style={styles.receiverText}>{data.message}</Text>
+                                    </View>
+                                ) : (
+                                    <View style={styles.sender}>
+                                        <Avatar />
+                                        <Text style={styles.senderText}>{data.message}</Text>
+                                    </View>
+                                )
+                            ))} 
 
-                    </ScrollView>
-                    <View style={styles.footer}>
-                        {/* Keyboard input text box */}
-                        <TextInput 
-                            placeholder='Enter your message'
-                            value={textInput}
-                            onChangeText={text => setTextInput(text)}
-                            style={styles.textInput}
-                            onSubmitEditing={sendMessage}
-                        />
-                        <TouchableOpacity onPress={sendMessage}>
-                            <Ionicons 
-                                name='send'
-                                size={24}
-                                color='#2b68e6'
+                        </ScrollView>
+                        <View style={styles.footer}>
+                            {/* Keyboard input text box */}
+                            <TextInput 
+                                placeholder='Enter your message'
+                                value={textInput}
+                                onChangeText={text => setTextInput(text)}
+                                style={styles.textInput}
+                                onSubmitEditing={sendMessage}
                             />
-                        </TouchableOpacity>
-                    </View>
-                </>
+                            <TouchableOpacity onPress={sendMessage}>
+                                <Ionicons 
+                                    name='send'
+                                    size={24}
+                                    color='#2b68e6'
+                                />
+                            </TouchableOpacity>
+                        </View>
+                    </>
+                </TouchableWithoutFeedback>
 
             </KeyboardAvoidingView>
         </SafeAreaView>
