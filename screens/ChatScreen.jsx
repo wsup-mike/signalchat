@@ -16,7 +16,8 @@ const ChatScreen = ({ navigation, route }) => {
     const [textInput, setTextInput] = useState('');   
     const [messages, setMessages] = useState([]);
 
-    useLayoutEffect(() => {
+    // Will set up this customized header at top with avatar, chat name, icons
+    useLayoutEffect(() => { 
         navigation.setOptions({
             title: 'Chat',
             headerBackTitleVisible: false, //ios only
@@ -62,11 +63,11 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
-
+    // Will add a new message object to 'messages' when invoked
     const sendMessage = async () => { // Using addDoc method
         Keyboard.dismiss();
         
-        // To refer to the 'messages' collection/section of our Firestore database
+        // To refer to the 'messages' collection/section at our Firestore database (Ref location!)
         const messagesRef = collection(db, 'chats', route.params.id, 'messages');
 
         //To add the data object specifically to the 'messages' section (as referenced by 'mesagesRef')
@@ -78,7 +79,7 @@ const ChatScreen = ({ navigation, route }) => {
             timestamp: serverTimestamp(), //Firestore has a new direct method to get this timestamp info!
         })
 
-        setTextInput('');
+        setTextInput('');  // Once addDoc creates a new state with a message object, this will clear it.
     }
 
     useLayoutEffect(() => {
