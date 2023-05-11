@@ -98,7 +98,6 @@ const ChatScreen = ({ navigation, route }) => {
             return listener;
         }
         return unsubscribe;
-        
     }, [route]);
 
      
@@ -117,6 +116,7 @@ const ChatScreen = ({ navigation, route }) => {
     //     setTextInput('');
     // }
 
+    
 
     return (
         <SafeAreaView style={{
