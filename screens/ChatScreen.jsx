@@ -113,7 +113,7 @@ const ChatScreen = ({ navigation, route }) => {
           setMessages(messagesData);
         });
     
-        return () => unsubscribe();
+        return unsubscribe;
       }, [route.params.id]);
 
 
