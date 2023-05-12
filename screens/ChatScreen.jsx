@@ -100,6 +100,11 @@ const ChatScreen = ({ navigation, route }) => {
         return unsubscribe;
     }, [route]);
 
+    useEffect(() => {
+        console.log('Current messages:', messages);
+      }, [messages]);
+      
+
      
 
     // const sendMessage = () => { // db.collection not an accessible method! Not sure why
