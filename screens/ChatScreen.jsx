@@ -115,7 +115,7 @@ const ChatScreen = ({ navigation, route }) => {
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <React.Fragment>
                         <ScrollView>
-                        {messages.map(({ id, data }) => (
+                        {/* {messages.map(({ id, data }) => (
                             data.email === auth.currentUser.email ? (
                                 <View key={id} style={styles.receiver}>
                                     <Avatar />
@@ -127,7 +127,8 @@ const ChatScreen = ({ navigation, route }) => {
                                     <Text style={styles.senderText}>{data.message}</Text>
                                 </View>
                             )
-                        ))}
+                        ))} */}
+                        
                         </ScrollView>
                         <View style={styles.footer}>
                             {/* Keyboard input text box */}
