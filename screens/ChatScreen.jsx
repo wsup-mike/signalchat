@@ -63,7 +63,7 @@ const ChatScreen = ({ navigation, route }) => {
         })
     }, [navigation])
 
-    // Will add a new message object to 'messages' when invoked
+    // Will add a new messa ge object to 'messages' when invoked
     const sendMessage = async () => { // Using addDoc method
         Keyboard.dismiss();
         
