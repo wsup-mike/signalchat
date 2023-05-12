@@ -101,23 +101,6 @@ const ChatScreen = ({ navigation, route }) => {
         return unsubscribe;
     }, [route]);    
 
-      
-
-    // useLayoutEffect(() => {
-    //     const unsubscribe = db
-    //         .collection("chats")
-    //         .doc(route.params.id)
-    //         .collection("messages")
-    //         .orderBy("timestamp", "desc")
-    //         .onSnapshot((snapshot) => setMessages(
-    //             snapshot.docs.map(doc => ({
-    //                 id: doc.id,
-    //                 data: doc.data(),
-    //             }))
-    //         )
-    //         );
-    //         return unsubscribe;
-    // }, [route]);
 
     return (
         <SafeAreaView style={{
@@ -131,7 +114,7 @@ const ChatScreen = ({ navigation, route }) => {
                 keyboardVerticalOffset={90}
             >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <> 
+                    <React.Fragment>
                         <ScrollView>
                             {/* Chat goes here. */}
                             {/* We destructure the 'message' to get id, data */}
@@ -167,7 +150,7 @@ const ChatScreen = ({ navigation, route }) => {
                                 />
                             </TouchableOpacity>
                         </View>
-                    </>
+                    </React.Fragment>
                 </TouchableWithoutFeedback>
 
             </KeyboardAvoidingView>
