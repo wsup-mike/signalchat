@@ -94,7 +94,6 @@ const ChatScreen = ({ navigation, route }) => {
                     id: doc.id,
                     data: doc.data() //Converts FDF to plain JavaScript object
                 })))
-                
             })
             return listener;
         }
@@ -116,24 +115,19 @@ const ChatScreen = ({ navigation, route }) => {
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <React.Fragment>
                         <ScrollView>
-                            {/* Chat goes here. */}
-                            {/* We destructure the 'message' to get id, data */}
-                            {/* At first the useLayoutEffect updates the newest state of this chat group to 'messages': a copy of the 'messages' collection. Here we will map thropugh the entire 'messages' collection. For each single message, selecting by 'id' and 'data', we will identify if this particular message's user 'email' matches the currentUser's 'email'! If so then we will display the appropriate logged in user's Avatar and their specific 'message' text. If the message's 'email' doestn match, then we will use the user's Avatar and 'message' instead */}
-                            
-                            {messages.map(({ id, data }) => (
-                                data.email === auth.currentUser.email ? (
-                                    <View key={id} style={styles.receiver}> 
-                                        <Avatar />
-                                        <Text style={styles.receiverText}>{data.message}</Text>
-                                    </View>
-                                ) : (
-                                    <View key={id} style={styles.sender}>
-                                        <Avatar />
-                                        <Text style={styles.senderText}>{data.message}</Text>
-                                    </View>
-                                )
-                            ))} 
-
+                        {messages.map(({ id, data }) => (
+                            data.email === auth.currentUser.email ? (
+                                <View key={id} style={styles.receiver}>
+                                    <Avatar />
+                                    <Text style={styles.receiverText}>{data.message}</Text>
+                                </View>
+                            ) : (
+                                <View key={id} style={styles.sender}>
+                                    <Avatar />
+                                    <Text style={styles.senderText}>{data.message}</Text>
+                                </View>
+                            )
+                        ))}
                         </ScrollView>
                         <View style={styles.footer}>
                             {/* Keyboard input text box */}
@@ -154,7 +148,6 @@ const ChatScreen = ({ navigation, route }) => {
                         </View>
                     </React.Fragment>
                 </TouchableWithoutFeedback>
-
             </KeyboardAvoidingView>
         </SafeAreaView>
     )
