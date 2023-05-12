@@ -79,7 +79,10 @@ const ChatScreen = ({ navigation, route }) => {
             timestamp: serverTimestamp(), //Firestore has a new direct method to get this timestamp info!
         })
 
-        setTextInput('');  // Once addDoc creates a new state with a message object, this will clear it.
+        setTimeout(() => {
+            setTextInput('');
+        }, 500);
+        // 
     }
 
     // Will refresh the 'messages' state with the most current version of 'messages' by the time this screen mounts. Will create 'listener' on an ordered object 'messages' collection. On this ordered object, a listener 'listener' is applied. Here's what happens: The moment a CHANGE occurs, the 'listner' will take a 'snapshot' of the ENTIRE COLLECTION (New edits incl!). Then listner will set new state using setMessages using the entire 'snapshot'. It will re-create a new array from mapping over the elements (docs) in the snapshot, grabbing each doc.id and doc.data and this final array will be set to new state 'messages'.  Done, now the listner is removed, then unsubscribe is removed. And this useEffectLayout will depend on the react navigation 'route' object. The current route is always monitored (i.e. the user's current screen). MOre specifivally it will invoke when 'route.params.id' changes (i.e. this refers to a very SPECIFIC chat group!). The messages located within the object pointed at route.params.id is what will be retrieved and updated.
@@ -89,7 +92,7 @@ const ChatScreen = ({ navigation, route }) => {
             const returnedMessage = query(messagesLocation, orderBy('timestamp', 'desc'));
             // console.log(returnedMessage)
             const listener = onSnapshot(returnedMessage, (snapshot) => {
-                console.log(snapshot.docs)
+                // console.log(snapshot.docs)
                 setMessages(snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data() //Converts FDF to plain JavaScript object
