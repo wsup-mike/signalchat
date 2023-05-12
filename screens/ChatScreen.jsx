@@ -87,22 +87,20 @@ const ChatScreen = ({ navigation, route }) => {
         const unsubscribe = () => {
             const messagesLocation = collection(db, 'chats', route.params.id, 'messages')
             const returnedMessage = query(messagesLocation, orderBy('timestamp', 'desc'));
+            // console.log(returnedMessage)
             const listener = onSnapshot(returnedMessage, (snapshot) => {
-                console.log('Query request sent!')
+                console.log(snapshot.docs)
                 setMessages(snapshot.docs.map(doc => ({
                     id: doc.id,
                     data: doc.data() //Converts FDF to plain JavaScript object
                 })))
-                console.log(`'messages' state now has a new object: ${messages}`)
+                
             })
             return listener;
         }
         return unsubscribe;
     }, [route]);    
 
-    useEffect(() => {
-        console.log(`'messages' state now has a new object: ${messages}`);
-      }, [messages]);
       
 
     // useLayoutEffect(() => {
@@ -151,7 +149,6 @@ const ChatScreen = ({ navigation, route }) => {
                                     </View>
                                 )
                             ))} 
-
                         </ScrollView>
                         <View style={styles.footer}>
                             {/* Keyboard input text box */}
