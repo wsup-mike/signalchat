@@ -128,7 +128,7 @@ const ChatScreen = ({ navigation, route }) => {
                                 </View>
                             )
                         ))} */}
-                        
+                        {<View>{messages}</View>}
                         </ScrollView>
                         <View style={styles.footer}>
                             {/* Keyboard input text box */}
