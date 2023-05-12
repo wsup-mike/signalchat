@@ -100,9 +100,7 @@ const ChatScreen = ({ navigation, route }) => {
         return unsubscribe;
     }, [route]);
 
-    useEffect(() => {
-        console.log('Current messages:', messages);
-      }, [messages]);
+
       
 
      
